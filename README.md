@@ -29,6 +29,7 @@ The next milestones are device recovery, command-boundary-safe packaging, and re
 
 - [Findings and evidence](docs/findings.md)
 - [Menu structures](docs/menus.md)
+- [Buttons, rotary input and context-dependent actions](docs/input-controls.md)
 - [Feature visibility and dynamic menus](docs/feature-visibility.md)
 - [Source dispatch and saved settings](docs/source-dispatch-and-settings.md)
 - [Configured settings window and dump inspection](docs/storage-layout.md)
