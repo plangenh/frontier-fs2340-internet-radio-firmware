@@ -13,7 +13,7 @@ from pathlib import Path
 from deflate_transcode import transcode
 
 
-def scan_commands(block, module=None):
+def scan_commands(block, module=None, metadata=None):
     cursor = 0
     writes = []
     count = 0
@@ -36,6 +36,8 @@ def scan_commands(block, module=None):
                 module = payload[4:].split(b'\0', 1)[0].decode('ascii')
                 if not module:
                     raise ValueError('Empty module name')
+            if metadata is not None:
+                metadata.append(hashlib.sha256(block[cursor:cursor+header+size]).hexdigest())
         elif (tag, argument) in ((0, 4), (4, 8)):
             header = 16 if tag == 0 else 20
             if remaining < header:
@@ -62,7 +64,7 @@ def scan_commands(block, module=None):
     return module, writes, count
 
 
-def check_image(image):
+def check_image(image, include_records=False):
     if len(image) < 288 or len(image) > 8*1024*1024:
         raise ValueError('Unsupported image size')
     if struct.unpack_from('<3I', image) != (0x1176, 124, 1):
@@ -114,6 +116,7 @@ def check_image(image):
     visited = set()
     writes = []
     command_count = 0
+    metadata = []
     for head in heads:
         current = head
         module = None
@@ -122,7 +125,7 @@ def check_image(image):
                 raise ValueError('Cyclic or merged block chains')
             visited.add(current)
             current, data = blocks[current]
-            module, records, count = scan_commands(data, module)
+            module, records, count = scan_commands(data, module, metadata)
             writes.extend(records)
             command_count += count
     if len(visited) != len(blocks):
@@ -148,7 +151,7 @@ def check_image(image):
                                      'start': hex(lo), 'end_exclusive': hex(hi)})
             if end > start:
                 active.append((index, record))
-    return {'sha256': hashlib.sha256(image).hexdigest(), 'blocks': len(blocks),
+    result = {'sha256': hashlib.sha256(image).hexdigest(), 'blocks': len(blocks),
             'chains': len(heads), 'commands': command_count, 'writes': len(writes),
             'module_names': sorted(by_module), 'overlapping_writes': overlaps,
             'limitations': ['Static structural checks only; no hardware boot test.',
@@ -156,6 +159,11 @@ def check_image(image):
                             'Unknown chain terminal IDs are retained as opaque; no terminal whitelist is established.',
                             'Address checks detect 32-bit wrap, not validity for physical RAM or MMIO.',
                             'Overlaps are reported, not automatically classified as invalid.']}
+
+    if include_records:
+        result['_writes'] = writes
+        result['_metadata'] = metadata
+    return result
 
 
 def main():
