@@ -94,6 +94,7 @@ def check_image(image, include_records=False):
     if not entries:
         raise ValueError('Empty block table')
     blocks = {}
+    compressed_hashes = []
     for ident, offset, size, link, decoded_size in entries:
         if offset != position or offset + size + 2 > len(image):
             raise ValueError('Noncontiguous or out-of-range block')
@@ -107,6 +108,7 @@ def check_image(image, include_records=False):
         decoded = decoder.decompress(transcode(encoded, 'msb', 'lsb').data, decoded_size+1)
         if len(decoded) != decoded_size or not decoder.eof or decoder.unused_data or decoder.unconsumed_tail:
             raise ValueError('Invalid or oversized DEFLATE stream')
+        compressed_hashes.append(hashlib.sha256(image[offset:offset+size+2]).hexdigest())
         blocks[ident] = (link, decoded)
         position = offset + size + 2
     if position != len(image):
@@ -163,6 +165,10 @@ def check_image(image, include_records=False):
     if include_records:
         result['_writes'] = writes
         result['_metadata'] = metadata
+        result['_container'] = {
+            'header_without_md5': hashlib.sha256(image[:108]+image[124:268]).hexdigest(),
+            'table_terminator': hashlib.sha256(image[268+20*len(entries):288+20*len(entries)]).hexdigest(),
+            'entries': entries, 'compressed_hashes': compressed_hashes}
     return result
 
 

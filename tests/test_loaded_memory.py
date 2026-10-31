@@ -37,5 +37,35 @@ class LoadedMemoryTests(unittest.TestCase):
         saved = bytes(after)
         result = compare_images(before, after, [('test', 0x32000001, 0x32000002)])
         self.assertTrue(result['metadata_command_sequence_equal'])
+        container = result['container_comparison']
+        self.assertTrue(container['ordered_ids_equal'])
+        self.assertTrue(container['ordered_links_equal'])
+        self.assertTrue(container['header_except_md5_equal'])
+        self.assertEqual(container['decoded_size_changes'], 0)
+        self.assertEqual(container['compressed_block_byte_changes'], 1)
         self.assertTrue(result['scope_check_passed'])
         self.assertEqual(saved, after)
+
+    def test_container_identity_and_header_difference(self):
+        import hashlib
+        before = fixture(module()+load())
+        identical = compare_images(before, before)
+        self.assertEqual(identical['container_comparison']['compressed_block_byte_changes'], 0)
+        changed = bytearray(before)
+        changed[12] ^= 1
+        changed[108:124] = hashlib.md5(changed[124:]).digest()
+        result = compare_images(before, changed)
+        self.assertFalse(result['container_comparison']['header_except_md5_equal'])
+        self.assertEqual(result['changed_mapped_bytes'], 0)
+
+    def test_ids_are_compared_even_when_loaded_memory_matches(self):
+        import hashlib
+        import struct
+        before = fixture(module()+load())
+        changed = bytearray(before)
+        struct.pack_into('<I', changed, 268, 2)
+        changed[108:124] = hashlib.md5(changed[124:]).digest()
+        result = compare_images(before, changed)
+        self.assertEqual(result['changed_mapped_bytes'], 0)
+        self.assertFalse(result['container_comparison']['ordered_ids_equal'])
+        self.assertNotIn('compressed_block_byte_changes', result['container_comparison'])

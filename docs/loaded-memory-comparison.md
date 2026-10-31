@@ -32,3 +32,25 @@ The retained blue Wi-Fi experiment was compared against the corrected graphics r
 | Metadata command byte sequence | Equal |
 
 Thus the asset headers and all other reconstructed memory bytes remain unchanged relative to that base. The blue Wi-Fi changes already present in the base are preserved, not revalidated as correct hardware behavior. The detailed comparison and ranges remain in the private evidence bundle. No firmware was uploaded or booted.
+
+## Container identity checks
+
+The report also compares the ordered block IDs and `(ID, next-ID)` pairs, block count, the entire pre-table header excluding only the outer MD5 field, and the complete 20-byte table terminator. When ordered IDs agree, it separately counts relocated blocks, compressed-size changes, decoded-size changes, and changed compressed-block bytes (using SHA-256).
+
+These checks are independent of loaded-memory equality: two images can load the same bytes while having different IDs or headers. Synthetic tests exercise that distinction. A passing memory scope check must not be read as a passing container-identity check.
+
+In the original, the six observed chains all terminate at `0xffffffff`. Across their 353 internal links, the ID differences match neither the preceding decoded block size nor its compressed on-disk size. This rules out those two simple offset interpretations for the observed links; it does not resolve the full meaning of IDs. The checker therefore does not invent a general ID recalculation rule or whitelist terminals for other images.
+
+For the retained blue Wi-Fi base versus the corrected graphics rebuild, the extended checker reports:
+
+| Container property | Result |
+|---|---|
+| Block count, ordered IDs, ordered links | Equal |
+| Pre-table header excluding outer MD5 | Equal |
+| Table terminator | Equal |
+| Relocated blocks | 122 |
+| Changed compressed block bytes | 113 |
+| Changed compressed-size fields | 112 |
+| Changed decoded-size fields | 33 |
+
+Relocation and recompression are counted separately: a moved block need not contain changed compressed bytes, and recompression can change bytes without changing length. These results establish what this rebuild preserved; they do not prove that decoded-size changes or repartitioning meet every requirement of the unavailable loader implementation.

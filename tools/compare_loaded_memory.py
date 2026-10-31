@@ -70,6 +70,23 @@ def compare_records(before, after, allowed=()):
 def compare_images(before, after, allowed=()):
     a, b = check_image(before, True), check_image(after, True)
     result = compare_records(a['_writes'], b['_writes'], allowed)
+    ac, bc = a['_container'], b['_container']
+    ae, be = ac['entries'], bc['entries']
+    same_ids = [entry[0] for entry in ae] == [entry[0] for entry in be]
+    invariants = {
+        'block_count_equal': len(ae) == len(be),
+        'ordered_ids_equal': same_ids,
+        'ordered_links_equal': [(entry[0], entry[3]) for entry in ae] == [(entry[0], entry[3]) for entry in be],
+        'header_except_md5_equal': ac['header_without_md5'] == bc['header_without_md5'],
+        'table_terminator_equal': ac['table_terminator'] == bc['table_terminator']}
+    if same_ids:
+        invariants.update(
+            relocated_blocks=sum(x[1] != y[1] for x, y in zip(ae, be)),
+            compressed_size_changes=sum(x[2] != y[2] for x, y in zip(ae, be)),
+            decoded_size_changes=sum(x[4] != y[4] for x, y in zip(ae, be)),
+            compressed_block_byte_changes=sum(x != y for x, y in zip(ac['compressed_hashes'], bc['compressed_hashes'])))
+    result['container_comparison'] = invariants
+
     result.update(before_sha256=a['sha256'], after_sha256=b['sha256'],
                   metadata_command_sequence_equal=a['_metadata'] == b['_metadata'],
                   allowed_ranges=[{'module': name, 'start': hex(start), 'end_exclusive': hex(end)}
