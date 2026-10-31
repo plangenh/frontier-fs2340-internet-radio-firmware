@@ -42,3 +42,7 @@ The corrected inventory is **39 forms, 102 declared rows, 96 statically resolved
 - Executable references that could establish actual color-theme behavior.
 
 These findings do not establish a safely installable customization or a completed recovery.
+
+## Follow-up
+
+The next pass found the consumers of events `0x901` and `0x103`, source-entry callbacks, and the record-based settings load/save path. See [source dispatch and saved settings](source-dispatch-and-settings.md) for what is now resolved and what remains open.

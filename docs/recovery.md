@@ -20,3 +20,7 @@ The photographed board has an identified cFeon/EON EN25QH64A-104HIP: 64 Mbit / 8
 An external SPI programmer could first obtain multiple identical full-chip reads. Flash layout, bootloader, configuration, and device-specific regions must then be identified before constructing a suitable repair image. In-circuit access is not guaranteed; desoldering may be necessary.
 
 **An ISU update file is not a complete flash dump and must not be treated as one.** This project currently has no confirmed recovery procedure or successful recovery test.
+
+## Settings-storage follow-up
+
+A later static trace identifies settings record `0x2e` and separate runtime/serialized fields for language and time-update source. Its physical flash location is still unresolved. This strengthens the need to preserve configuration during recovery, without providing a ready-to-write flash map. See [the settings investigation](source-dispatch-and-settings.md).
