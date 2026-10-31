@@ -1,6 +1,6 @@
-# Majority Touro / Frontier FS2340 firmware research
+# Frontier Venice X / FS2340 Firmware Research — Majority Touro
 
-Independent research into the display resources, menu structures, and update container of a Majority Touro internet radio using Frontier technology. This is not an official manufacturer project.
+Independent research into Frontier Venice X / FS2340 internet radio firmware, currently based on one specific Majority Touro firmware version. Coverage of other devices is unverified. This is not an official manufacturer project.
 
 **Status: October 31, 2026.** This repository documents findings and provides offline analysis tools. It does not provide installable custom firmware or a confirmed recovery procedure.
 

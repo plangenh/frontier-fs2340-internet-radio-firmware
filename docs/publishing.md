@@ -4,13 +4,13 @@ The local repository is separate from the private analysis workspace. It has no 
 
 ## Create the repository in a browser
 
-1. Sign in to GitHub and create a repository named `majority-touro-research`.
+1. Sign in to GitHub and create a repository named `frontier-fs2340-internet-radio-firmware`.
 2. Choose **Public**. Do not generate an additional README, license, or `.gitignore`; they already exist locally.
 3. Open a terminal in this project directory. If needed, configure your Git identity for this repository only.
 4. Add the HTTPS or SSH address shown by GitHub as the remote and push:
 
 ```sh
-git remote add origin https://github.com/YOUR-NAME/majority-touro-research.git
+git remote add origin https://github.com/plangenh/frontier-fs2340-internet-radio-firmware.git
 git push -u origin main
 ```
 
