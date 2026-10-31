@@ -8,7 +8,7 @@ Independent research into Frontier Venice X / FS2340 internet radio firmware, cu
 
 - Verified 359 compressed blocks in the examined original update.
 - Identified 15 language tables containing 1,056 text resources each.
-- Recovered 39 static list/menu forms with 102 declared entries: 95 labels resolved statically; seven remain dynamic or unresolved.
+- Recovered 39 static list/menu forms with 102 declared entries: 96 labels resolved statically; six remain dynamic.
 - Identified 65 bitmap resources using 4 bpp indices and RGB565 palettes; internal PNG round trips reproduced the original records byte for byte.
 - Traced the Podcast icons to renderer indices 42–44.
 - Identified a loader-command repartitioning defect in an experimental modification. After installation, a test device stalled at startup; successful recovery is still pending.
@@ -29,6 +29,7 @@ The next milestones are device recovery, command-boundary-safe packaging, and re
 
 - [Findings and evidence](docs/findings.md)
 - [Menu structures](docs/menus.md)
+- [Feature visibility and dynamic menus](docs/feature-visibility.md)
 - [Container and loader](docs/container.md)
 - [Display resources](docs/display.md)
 - [Failed update and recovery status](docs/recovery.md)

@@ -22,7 +22,11 @@ def read(addr,n):
   for a,b in ims:
    if a<=pos<a+len(b):
     take=min(n-len(out),a+len(b)-pos);out.extend(b[pos-a:pos-a+take]);break
-  else:raise ValueError(hex(pos))
+  else:
+   for fill in mod['fills']:
+    if fill['value']==0 and fill['address']<=pos<fill['address']+fill['size']:
+     take=min(n-len(out),fill['address']+fill['size']-pos);out.extend(bytes(take));break
+   else:raise ValueError(hex(pos))
  return bytes(out)
 def label(w):
  i=w>>16

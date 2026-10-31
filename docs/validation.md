@@ -2,7 +2,7 @@
 
 Date: October 31, 2026.
 
-- Three synthetic/data tests passed, including DEFLATE round trips at four compression levels and rejection of a load command crossing a block boundary.
+- Synthetic/data tests passed, including DEFLATE round trips at four compression levels and rejection of a load command crossing a block boundary.
 - The public extraction tools were run against the private original: 359 compressed blocks, six chains, 23 module records, and 30,084 loader commands.
 - Every original block was checked independently for complete commands.
 - Language resources were freshly extracted: 15 tables / 15,840 entries.
@@ -12,3 +12,7 @@ Date: October 31, 2026.
 - The English menu explorer's search and list filters were checked locally after translation.
 
 Tests do not require hardware. GitHub Actions execution and Pages deployment require a connected GitHub repository; neither is claimed to have succeeded yet.
+
+## Follow-up correction
+
+The menu extractor now joins declared zero-fill with initialized bytes. This recovers Network wizard and changes the static label count from 95 to 96. A synthetic end-to-end regression test covers the exact boundary pattern. The corrected extractor was also rerun against the private original.

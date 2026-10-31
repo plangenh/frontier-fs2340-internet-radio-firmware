@@ -9,7 +9,7 @@ Size: 4,136,167 bytes.
 |---|---|---|
 | 359 compressed blocks with matching CRC-16 and decoded sizes | Offline parser; internal comparison against a second decoder | Specific to this artifact |
 | 15 tables of 1,056 resources each | Pointer resolution and repeated byte-level verification of all 15,840 strings | Language identity inferred from text |
-| 39 list forms / 102 entries / 95 static labels | Shared 64-byte structure, 20-byte entries, valid IDs | Dynamic entries and model filtering remain unresolved |
+| 39 list forms / 102 entries / 96 static labels | Shared 64-byte structure, 20-byte entries, valid IDs | Six dynamic labels remain; see the later callback investigation |
 | 65 graphic records | Contiguous range and internal byte-identical PNG round trips | Original graphics are not distributed |
 | Podcasts uses images 42–44 | Static instruction analysis of lookup, variant selection, and renderer | No newly observed runtime test |
 | Experimental image update violated block boundaries | Comparison of original and modified artifacts; 113 problematic blocks | Actual bootloader control flow remains unresolved |

@@ -925,15 +925,15 @@
       "items": [
         {
           "address": "0x32afd42c",
+          "flags": "0x0",
           "label": {
-            "id": null,
-            "en": "[runtime-populated / unavailable initial bytes]",
-            "de": "[runtime-populated]"
+            "id": 317,
+            "en": "Network wizard",
+            "de": "Netzwerkassistent"
           },
-          "flags": null,
-          "value": null,
-          "callback": null,
-          "argument": null,
+          "value": "0x0",
+          "callback": "0xb20b41b0",
+          "argument": "0x00000000",
           "submenu_candidate": null,
           "submenu_descriptor_found": false
         },
