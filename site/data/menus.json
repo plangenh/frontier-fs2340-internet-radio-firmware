@@ -1,0 +1,2088 @@
+{
+  "method": "64-byte list-form family, header flags 0..4, subtype 0..4, tagged title and exact 0,40,320,200 geometry; 20-byte records with tagged locale IDs; edges via shared b20cbbd4 callback and pointer argument are static submenu candidates, not observed execution.",
+  "source_sha256": "48a9da85d2580ee7fffde0f204ee2046ae0e300a2f23f1e4a6a5e3b299bd0dc3",
+  "forms": [
+    {
+      "address": "0x32aef9c0",
+      "title": {
+        "id": 155,
+        "en": "System settings",
+        "de": "Systemeinstellungen"
+      },
+      "items_address": "0x32af07d8",
+      "item_count": 10,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af07d8",
+          "flags": "0x100",
+          "label": {
+            "id": 158,
+            "en": "Equaliser",
+            "de": "Equalizer"
+          },
+          "value": "0x0",
+          "callback": "0xb209a2f0",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af07ec",
+          "flags": "0x100",
+          "label": {
+            "id": 161,
+            "en": "Streaming audio quality",
+            "de": "Qualität Audiostream"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af09fc",
+          "submenu_candidate": "0x32af09fc",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0800",
+          "flags": "0x100",
+          "label": {
+            "id": 162,
+            "en": "Network",
+            "de": "Netzwerk"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2afbe08",
+          "submenu_candidate": "0x32afbe08",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0814",
+          "flags": "0x100",
+          "label": {
+            "id": 163,
+            "en": "Time/Date",
+            "de": "Zeit/Datum"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0a3c",
+          "submenu_candidate": "0x32af0a3c",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0828",
+          "flags": "0x100",
+          "label": {
+            "id": 165,
+            "en": "Language",
+            "de": "Sprache"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0a7c",
+          "submenu_candidate": "0x32af0a7c",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af083c",
+          "flags": "0x0",
+          "label": {
+            "id": 164,
+            "en": "Factory reset",
+            "de": "Werkseinstellung"
+          },
+          "value": "0x0",
+          "callback": "0xb209a71c",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0850",
+          "flags": "0x100",
+          "label": {
+            "id": 554,
+            "en": "Software update",
+            "de": "Softwareupdate"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0abc",
+          "submenu_candidate": "0x32af0abc",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0864",
+          "flags": "0x0",
+          "label": {
+            "id": 664,
+            "en": "Setup wizard",
+            "de": "Einrichtungsassistent"
+          },
+          "value": "0x0",
+          "callback": "0xb20998a4",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0878",
+          "flags": "0x0",
+          "label": {
+            "id": 156,
+            "en": "Info",
+            "de": "Info"
+          },
+          "value": "0x0",
+          "callback": "0xb209a71c",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af088c",
+          "flags": "0x100",
+          "label": {
+            "id": 754,
+            "en": "Backlight",
+            "de": "Displaybeleuchtung"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0afc",
+          "submenu_candidate": "0x32af0afc",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32aefa00",
+      "title": {
+        "id": 154,
+        "en": "Main menu",
+        "de": "Hauptmenü"
+      },
+      "items_address": "0x32af08a0",
+      "item_count": 12,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af08a0",
+          "flags": "0x0",
+          "label": {
+            "id": 39,
+            "en": "Internet radio",
+            "de": "Internetradio"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af08b4",
+          "flags": "0x0",
+          "label": {
+            "id": 40,
+            "en": "Podcasts",
+            "de": "Podcasts"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af08c8",
+          "flags": "0x0",
+          "label": {
+            "id": 62,
+            "en": "Spotify",
+            "de": "Spotify"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000003",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af08dc",
+          "flags": "0x0",
+          "label": {
+            "id": 51,
+            "en": "Music player",
+            "de": "Musikabspieler"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af08f0",
+          "flags": "0x0",
+          "label": {
+            "id": 57,
+            "en": "DAB",
+            "de": "DAB"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000005",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0904",
+          "flags": "0x0",
+          "label": {
+            "id": 58,
+            "en": "FM",
+            "de": "FM"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000006",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0918",
+          "flags": "0x0",
+          "label": {
+            "id": 764,
+            "en": "Bluetooth",
+            "de": "Bluetooth"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000007",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af092c",
+          "flags": "0x0",
+          "label": {
+            "id": 59,
+            "en": "AUX in",
+            "de": "Aux In"
+          },
+          "value": "0x0",
+          "callback": "0xb20997e8",
+          "argument": "0x00000008",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0940",
+          "flags": "0x0",
+          "label": {
+            "id": 172,
+            "en": "Sleep",
+            "de": "Schlummer"
+          },
+          "value": "0x0",
+          "callback": "0xb209a2f0",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0954",
+          "flags": "0x0",
+          "label": {
+            "id": 173,
+            "en": "Alarms",
+            "de": "Wecker"
+          },
+          "value": "0x0",
+          "callback": "0xb209a2f0",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0968",
+          "flags": "0x0",
+          "label": {
+            "id": 178,
+            "en": "Timer",
+            "de": "Timer"
+          },
+          "value": "0x0",
+          "callback": "0xb209a2f0",
+          "argument": "0x00000005",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af097c",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32aefae0",
+      "title": {
+        "id": 169,
+        "en": "Auto update",
+        "de": "Autom. Update"
+      },
+      "items_address": "0x32af0990",
+      "item_count": 4,
+      "callback": "0xb20997a8",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af0990",
+          "flags": "0x0",
+          "label": {
+            "id": 183,
+            "en": "Update from DAB",
+            "de": "Update von DAB"
+          },
+          "value": "0x0",
+          "callback": "0xb20994fc",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af09a4",
+          "flags": "0x0",
+          "label": {
+            "id": 184,
+            "en": "Update from FM",
+            "de": "Update von FM"
+          },
+          "value": "0x0",
+          "callback": "0xb20994fc",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af09b8",
+          "flags": "0x0",
+          "label": {
+            "id": 185,
+            "en": "Update from Network",
+            "de": "Update von Netzwerk"
+          },
+          "value": "0x0",
+          "callback": "0xb20994fc",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af09cc",
+          "flags": "0x0",
+          "label": {
+            "id": 187,
+            "en": "No update",
+            "de": "Kein Update"
+          },
+          "value": "0x0",
+          "callback": "0xb20994fc",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32aefb20",
+      "title": {
+        "id": 171,
+        "en": "Set timezone",
+        "de": "Zeitzone einstellen"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb2099580",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32af09fc",
+      "title": {
+        "id": 161,
+        "en": "Streaming audio quality",
+        "de": "Qualität Audiostream"
+      },
+      "items_address": "0x32af0b7c",
+      "item_count": 3,
+      "callback": "0xb20989c8",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af0b7c",
+          "flags": "0x0",
+          "label": {
+            "id": 790,
+            "en": "Low quality",
+            "de": "Geringe Qualität"
+          },
+          "value": "0x0",
+          "callback": "0xb20994c4",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0b90",
+          "flags": "0x0",
+          "label": {
+            "id": 791,
+            "en": "Normal quality",
+            "de": "Normale Qualität "
+          },
+          "value": "0x0",
+          "callback": "0xb20994c4",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0ba4",
+          "flags": "0x0",
+          "label": {
+            "id": 792,
+            "en": "High quality",
+            "de": "Hohe Qualität"
+          },
+          "value": "0x0",
+          "callback": "0xb20994c4",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32af0a3c",
+      "title": {
+        "id": 163,
+        "en": "Time/Date",
+        "de": "Zeit/Datum"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32af0a7c",
+      "title": {
+        "id": 165,
+        "en": "Language",
+        "de": "Sprache"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb2098d00",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32af0abc",
+      "title": {
+        "id": 554,
+        "en": "Software update",
+        "de": "Softwareupdate"
+      },
+      "items_address": "0x32af0bb8",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af0bb8",
+          "flags": "0x0",
+          "label": {
+            "id": 552,
+            "en": "Auto-check setting",
+            "de": "Einstellung Automatiksuche"
+          },
+          "value": "0x0",
+          "callback": "0xb209a71c",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af0bcc",
+          "flags": "0x0",
+          "label": {
+            "id": 553,
+            "en": "Check now",
+            "de": "Jetzt suchen"
+          },
+          "value": "0x0",
+          "callback": "0xb209a71c",
+          "argument": "0x00000005",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32af0afc",
+      "title": {
+        "id": 754,
+        "en": "Backlight",
+        "de": "Displaybeleuchtung"
+      },
+      "items_address": "0x32af0be0",
+      "item_count": 3,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af0be0",
+          "flags": "0x100",
+          "label": {
+            "id": 755,
+            "en": "Timeout",
+            "de": "Zeitüberschreitung"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0c54",
+          "submenu_candidate": "0x32af0c54",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0bf4",
+          "flags": "0x100",
+          "label": {
+            "id": 756,
+            "en": "On level",
+            "de": "In Betrieb"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0c94",
+          "submenu_candidate": "0x32af0c94",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af0c08",
+          "flags": "0x100",
+          "label": {
+            "id": 757,
+            "en": "Dim level",
+            "de": "Dim-Level"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2af0cd4",
+          "submenu_candidate": "0x32af0cd4",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32af0c54",
+      "title": {
+        "id": 755,
+        "en": "Timeout",
+        "de": "Zeitüberschreitung"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb2098c34",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32af0c94",
+      "title": {
+        "id": 756,
+        "en": "On level",
+        "de": "In Betrieb"
+      },
+      "items_address": "0x32aefa40",
+      "item_count": 3,
+      "callback": "0xb2098c70",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32aefa40",
+          "flags": "0x0",
+          "label": {
+            "id": 759,
+            "en": "High",
+            "de": "Hell"
+          },
+          "value": "0x0",
+          "callback": "0xb2098e70",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32aefa54",
+          "flags": "0x0",
+          "label": {
+            "id": 760,
+            "en": "Medium",
+            "de": "Mittel"
+          },
+          "value": "0x0",
+          "callback": "0xb2098e70",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32aefa68",
+          "flags": "0x0",
+          "label": {
+            "id": 761,
+            "en": "Low",
+            "de": "Dunkel"
+          },
+          "value": "0x0",
+          "callback": "0xb2098e70",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32af0cd4",
+      "title": {
+        "id": 757,
+        "en": "Dim level",
+        "de": "Dim-Level"
+      },
+      "items_address": "0x32aefa7c",
+      "item_count": 3,
+      "callback": "0xb2098cb4",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32aefa7c",
+          "flags": "0x0",
+          "label": {
+            "id": 759,
+            "en": "High",
+            "de": "Hell"
+          },
+          "value": "0x0",
+          "callback": "0xb2098db4",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32aefa90",
+          "flags": "0x0",
+          "label": {
+            "id": 760,
+            "en": "Medium",
+            "de": "Mittel"
+          },
+          "value": "0x0",
+          "callback": "0xb2098db4",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32aefaa4",
+          "flags": "0x0",
+          "label": {
+            "id": 761,
+            "en": "Low",
+            "de": "Dunkel"
+          },
+          "value": "0x0",
+          "callback": "0xb2098db4",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32af28cc",
+      "title": {
+        "id": 39,
+        "en": "Internet radio",
+        "de": "Internetradio"
+      },
+      "items_address": "0x32af29a0",
+      "item_count": 4,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af29a0",
+          "flags": "0x100",
+          "label": {
+            "id": 403,
+            "en": "Last listened",
+            "de": "Zuletzt angehört"
+          },
+          "value": "0x0",
+          "callback": "0xb209ef38",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af29b4",
+          "flags": "0x100",
+          "label": {
+            "id": 400,
+            "en": "Station list",
+            "de": "Senderliste"
+          },
+          "value": "0x0",
+          "callback": "0xb209ef38",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af29c8",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af29dc",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32af290c",
+      "title": {
+        "id": 40,
+        "en": "Podcasts",
+        "de": "Podcasts"
+      },
+      "items_address": "0x32af29f0",
+      "item_count": 4,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32af29f0",
+          "flags": "0x100",
+          "label": {
+            "id": 403,
+            "en": "Last listened",
+            "de": "Zuletzt angehört"
+          },
+          "value": "0x0",
+          "callback": "0xb209ef38",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af2a04",
+          "flags": "0x100",
+          "label": {
+            "id": 401,
+            "en": "Podcast list",
+            "de": "Podcast list"
+          },
+          "value": "0x0",
+          "callback": "0xb209ef38",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32af2a18",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32af2a2c",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32afbe08",
+      "title": {
+        "id": 333,
+        "en": "Network settings",
+        "de": "Netzwerkeinstellungen"
+      },
+      "items_address": "0x32afd42c",
+      "item_count": 7,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd42c",
+          "label": {
+            "id": null,
+            "en": "[runtime-populated / unavailable initial bytes]",
+            "de": "[zur Laufzeit befüllt]"
+          },
+          "flags": null,
+          "value": null,
+          "callback": null,
+          "argument": null,
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd440",
+          "flags": "0x0",
+          "label": {
+            "id": 388,
+            "en": "PBC Wlan setup",
+            "de": "PBC Wlan Setup"
+          },
+          "value": "0x0",
+          "callback": "0xb20b61f0",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd454",
+          "flags": "0x0",
+          "label": {
+            "id": 318,
+            "en": "View settings",
+            "de": "Einstellungen anzeigen"
+          },
+          "value": "0x0",
+          "callback": "0xb209a598",
+          "argument": "0xb2afd5b0",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd468",
+          "flags": "0x0",
+          "label": {
+            "id": 319,
+            "en": "Manual settings",
+            "de": "Manuelle Einstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20b61c8",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd47c",
+          "flags": "0x100",
+          "label": {
+            "id": 320,
+            "en": "Network profile",
+            "de": "Netzwerkprofil"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2afd5c0",
+          "submenu_candidate": "0x32afd5c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32afd490",
+          "flags": "0x100",
+          "label": {
+            "id": 325,
+            "en": "Clear network settings",
+            "de": "Netzwerkeinstellungen löschen"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000010",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd4a4",
+          "flags": "0x0",
+          "label": {
+            "id": 324,
+            "en": "Keep network connected",
+            "de": "Netzwerkverbindung beibehalten"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x0000000f",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afc054",
+      "title": {
+        "id": 356,
+        "en": "Encryption type",
+        "de": "Verschlüsselungstyp"
+      },
+      "items_address": "0x32afd4cc",
+      "item_count": 1,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd4cc",
+          "flags": "0x0",
+          "label": {
+            "id": 360,
+            "en": "PreSharedKey",
+            "de": "PreSharedKey"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000008",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afc094",
+      "title": {
+        "id": 356,
+        "en": "Encryption type",
+        "de": "Verschlüsselungstyp"
+      },
+      "items_address": "0x32afd4e0",
+      "item_count": 1,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd4e0",
+          "flags": "0x0",
+          "label": {
+            "id": 357,
+            "en": "PSK AES/TKIP",
+            "de": "PSK AES/TKIP"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x0000000d",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afc964",
+      "title": {
+        "id": 347,
+        "en": "Connection type",
+        "de": "Verbindungsart"
+      },
+      "items_address": "0x32afd4fc",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd4fc",
+          "flags": "0x100",
+          "label": {
+            "id": 348,
+            "en": "Wired",
+            "de": "Kabel"
+          },
+          "value": "0x0",
+          "callback": "0xb20b47dc",
+          "argument": "0xb2afc9e4",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd510",
+          "flags": "0x100",
+          "label": {
+            "id": 349,
+            "en": "Wireless",
+            "de": "Drahtlos"
+          },
+          "value": "0x0",
+          "callback": "0xb20b4788",
+          "argument": "0xb2afc9a4",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afc9a4",
+      "title": {
+        "id": 340,
+        "en": "DHCP",
+        "de": "DHCP"
+      },
+      "items_address": "0x32afd524",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd524",
+          "flags": "0x0",
+          "label": {
+            "id": 350,
+            "en": "DHCP enable",
+            "de": "DHCP aktivieren"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd538",
+          "flags": "0x0",
+          "label": {
+            "id": 351,
+            "en": "DHCP disable",
+            "de": "DHCP deaktivieren"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000005",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afc9e4",
+      "title": {
+        "id": 340,
+        "en": "DHCP",
+        "de": "DHCP"
+      },
+      "items_address": "0x32afd54c",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd54c",
+          "flags": "0x0",
+          "label": {
+            "id": 350,
+            "en": "DHCP enable",
+            "de": "DHCP aktivieren"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd560",
+          "flags": "0x0",
+          "label": {
+            "id": 351,
+            "en": "DHCP disable",
+            "de": "DHCP deaktivieren"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000003",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afca24",
+      "title": {
+        "id": 352,
+        "en": "Authentication",
+        "de": "Authentifizierung"
+      },
+      "items_address": "0x32afd574",
+      "item_count": 3,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afd574",
+          "flags": "0x100",
+          "label": {
+            "id": 353,
+            "en": "Open",
+            "de": "Offen"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000006",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd588",
+          "flags": "0x100",
+          "label": {
+            "id": 354,
+            "en": "WEP",
+            "de": "WEP"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x00000007",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afd59c",
+          "flags": "0x100",
+          "label": {
+            "id": 355,
+            "en": "WPA/WPA2",
+            "de": "WPA/WPA2"
+          },
+          "value": "0x0",
+          "callback": "0xb20b508c",
+          "argument": "0x0000000a",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afd5c0",
+      "title": {
+        "id": 320,
+        "en": "Network profile",
+        "de": "Netzwerkprofil"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20b365c",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32afdc6c",
+      "title": {
+        "id": 169,
+        "en": "Auto update",
+        "de": "Autom. Update"
+      },
+      "items_address": "0x32afe6b4",
+      "item_count": 4,
+      "callback": "0xb20b9914",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32afe6b4",
+          "flags": "0x0",
+          "label": {
+            "id": 183,
+            "en": "Update from DAB",
+            "de": "Update von DAB"
+          },
+          "value": "0x0",
+          "callback": "0xb20ba6f4",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afe6c8",
+          "flags": "0x0",
+          "label": {
+            "id": 184,
+            "en": "Update from FM",
+            "de": "Update von FM"
+          },
+          "value": "0x0",
+          "callback": "0xb20ba6f4",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afe6dc",
+          "flags": "0x0",
+          "label": {
+            "id": 185,
+            "en": "Update from Network",
+            "de": "Update von Netzwerk"
+          },
+          "value": "0x0",
+          "callback": "0xb20ba6f4",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32afe6f0",
+          "flags": "0x0",
+          "label": {
+            "id": 187,
+            "en": "No update",
+            "de": "Kein Update"
+          },
+          "value": "0x0",
+          "callback": "0xb20ba6f4",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32afdcac",
+      "title": {
+        "id": 171,
+        "en": "Set timezone",
+        "de": "Zeitzone einstellen"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20b9744",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32afdcec",
+      "title": {
+        "id": 165,
+        "en": "Language",
+        "de": "Sprache"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20b96ac",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32aff0a8",
+      "title": {
+        "id": 61,
+        "en": "Local Music",
+        "de": "Local Music"
+      },
+      "items_address": "0x32aff9b4",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32aff9b4",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32aff9c8",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b007b4",
+      "title": {
+        "id": 62,
+        "en": "Spotify",
+        "de": "Spotify"
+      },
+      "items_address": "0x32b01200",
+      "item_count": 2,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b01200",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b01214",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b0490c",
+      "title": {
+        "id": 51,
+        "en": "Music player",
+        "de": "Musikabspieler"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32b062bc",
+      "title": {
+        "id": 173,
+        "en": "Alarms",
+        "de": "Wecker"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cf7e4",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32b062fc",
+      "title": {
+        "id": 283,
+        "en": "Preset",
+        "de": "Voreinstellung"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32b0633c",
+      "title": {
+        "id": 280,
+        "en": "Duration",
+        "de": "Dauer"
+      },
+      "items_address": "0x32b08674",
+      "item_count": 6,
+      "callback": "0xb20d1764",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b08674",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b0865c",
+          "callback": "0xb20d1ebc",
+          "argument": "0x0000000f",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b08688",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b08660",
+          "callback": "0xb20d1ebc",
+          "argument": "0x0000001e",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0869c",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b08664",
+          "callback": "0xb20d1ebc",
+          "argument": "0x0000002d",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b086b0",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b08668",
+          "callback": "0xb20d1ebc",
+          "argument": "0x0000003c",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b086c4",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b0866c",
+          "callback": "0xb20d1ebc",
+          "argument": "0x0000005a",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b086d8",
+          "flags": "0x1",
+          "label": {
+            "id": 65535,
+            "en": "[dynamic label]",
+            "de": "[dynamischer Text]"
+          },
+          "value": "0xb2b08670",
+          "callback": "0xb20d1ebc",
+          "argument": "0x00000078",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32b0c664",
+      "title": {
+        "id": 484,
+        "en": "Manual tune",
+        "de": "Manuell einstellen"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32b0c6e0",
+      "title": {
+        "id": 488,
+        "en": "DRC",
+        "de": "DRC"
+      },
+      "items_address": "0x32b0c6a4",
+      "item_count": 3,
+      "callback": "0xb20ddbd8",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b0c6a4",
+          "flags": "0x0",
+          "label": {
+            "id": 497,
+            "en": "DRC high",
+            "de": "DRC hoch"
+          },
+          "value": "0x0",
+          "callback": "0xb20de84c",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0c6b8",
+          "flags": "0x0",
+          "label": {
+            "id": 498,
+            "en": "DRC low",
+            "de": "DRC tief"
+          },
+          "value": "0x0",
+          "callback": "0xb20de84c",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0c6cc",
+          "flags": "0x0",
+          "label": {
+            "id": 499,
+            "en": "DRC off",
+            "de": "DRC aus"
+          },
+          "value": "0x0",
+          "callback": "0xb20de84c",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        }
+      ]
+    },
+    {
+      "address": "0x32b0c7ac",
+      "title": {
+        "id": 57,
+        "en": "DAB",
+        "de": "DAB"
+      },
+      "items_address": "0x32b0c720",
+      "item_count": 7,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b0c720",
+          "flags": "0x100",
+          "label": {
+            "id": 400,
+            "en": "Station list",
+            "de": "Senderliste"
+          },
+          "value": "0x0",
+          "callback": "0xb20de460",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0c734",
+          "flags": "0x0",
+          "label": {
+            "id": 486,
+            "en": "Scan",
+            "de": "Vollständiger Suchlauf"
+          },
+          "value": "0x0",
+          "callback": "0xb20de460",
+          "argument": "0x00000004",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0c748",
+          "flags": "0x100",
+          "label": {
+            "id": 484,
+            "en": "Manual tune",
+            "de": "Manuell einstellen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2b0c664",
+          "submenu_candidate": "0x32b0c664",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b0c75c",
+          "flags": "0x0",
+          "label": {
+            "id": 487,
+            "en": "Prune invalid",
+            "de": "Bereinigung ungültig"
+          },
+          "value": "0x0",
+          "callback": "0xb20e3390",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0c770",
+          "flags": "0x100",
+          "label": {
+            "id": 488,
+            "en": "DRC",
+            "de": "DRC"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2b0c6e0",
+          "submenu_candidate": "0x32b0c6e0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b0c784",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b0c798",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b0db40",
+      "title": {
+        "id": 58,
+        "en": "FM",
+        "de": "FM"
+      },
+      "items_address": "0x32b0dadc",
+      "item_count": 5,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b0dadc",
+          "flags": "0x0",
+          "label": {
+            "id": 510,
+            "en": "Scan setting",
+            "de": "Suchlauf-Einstellung"
+          },
+          "value": "0x0",
+          "callback": "0xb20e3a8c",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0daf0",
+          "flags": "0x0",
+          "label": {
+            "id": 511,
+            "en": "Audio setting",
+            "de": "Audio-Einstellung"
+          },
+          "value": "0x0",
+          "callback": "0xb20e3a8c",
+          "argument": "0x00000001",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0db04",
+          "flags": "0x0",
+          "label": {
+            "id": 516,
+            "en": "Auto presetting",
+            "de": "Automatische Voreinstellung"
+          },
+          "value": "0x0",
+          "callback": "0xb20e3a8c",
+          "argument": "0x00000002",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b0db18",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b0db2c",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b0eb20",
+      "title": {
+        "id": 115,
+        "en": "Preset station",
+        "de": "Sender voreinstellen"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    },
+    {
+      "address": "0x32b10530",
+      "title": {
+        "id": 764,
+        "en": "Bluetooth",
+        "de": "Bluetooth"
+      },
+      "items_address": "0x32b10fe4",
+      "item_count": 4,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b10fe4",
+          "flags": "0x100",
+          "label": {
+            "id": 770,
+            "en": "Setup Bluetooth",
+            "de": "Bluetooth einrichten"
+          },
+          "value": "0x0",
+          "callback": "0xb20e5c98",
+          "argument": "0x00000000",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b10ff8",
+          "flags": "0x100",
+          "label": {
+            "id": 189,
+            "en": "View details",
+            "de": "Details anzeigen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2b1104c",
+          "submenu_candidate": "0x32b1104c",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b1100c",
+          "flags": "0x100",
+          "label": {
+            "id": 155,
+            "en": "System settings",
+            "de": "Systemeinstellungen"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aef9c0",
+          "submenu_candidate": "0x32aef9c0",
+          "submenu_descriptor_found": true
+        },
+        {
+          "address": "0x32b11020",
+          "flags": "0x100",
+          "label": {
+            "id": 154,
+            "en": "Main menu",
+            "de": "Hauptmenü"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2aefa00",
+          "submenu_candidate": "0x32aefa00",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b1104c",
+      "title": {
+        "id": 189,
+        "en": "View details",
+        "de": "Details anzeigen"
+      },
+      "items_address": "0x32b110a4",
+      "item_count": 3,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": [
+        {
+          "address": "0x32b110a4",
+          "flags": "0x100",
+          "label": {
+            "id": 771,
+            "en": "Bluetooth Info",
+            "de": "Bluetooth Info"
+          },
+          "value": "0x0",
+          "callback": "0xb209a598",
+          "argument": "0xb2b11100",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b110b8",
+          "flags": "0x100",
+          "label": {
+            "id": 772,
+            "en": "Connected Device",
+            "de": "Verbundenes Gerät"
+          },
+          "value": "0x0",
+          "callback": "0xb209a598",
+          "argument": "0xb2b11110",
+          "submenu_candidate": null,
+          "submenu_descriptor_found": false
+        },
+        {
+          "address": "0x32b110cc",
+          "flags": "0x100",
+          "label": {
+            "id": 773,
+            "en": "Paired Device List",
+            "de": "Liste gekoppelter Geräte"
+          },
+          "value": "0x0",
+          "callback": "0xb20cbbd4",
+          "argument": "0xb2b11120",
+          "submenu_candidate": "0x32b11120",
+          "submenu_descriptor_found": true
+        }
+      ]
+    },
+    {
+      "address": "0x32b11120",
+      "title": {
+        "id": 773,
+        "en": "Paired Device List",
+        "de": "Liste gekoppelter Geräte"
+      },
+      "items_address": "0x00000000",
+      "item_count": 0,
+      "callback": "0xb20cb5fc",
+      "geometry_words": [
+        "0x00280000",
+        "0x00c80140"
+      ],
+      "items": []
+    }
+  ],
+  "root_candidates": [
+    "0x32aefa00",
+    "0x32aef9c0"
+  ]
+}

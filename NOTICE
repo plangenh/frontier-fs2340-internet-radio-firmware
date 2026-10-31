@@ -1,0 +1,9 @@
+Independent research; no affiliation with Majority, Frontier Smart Technologies or their suppliers.
+
+The MIT license covers original research prose and original project scripts only.
+Short UI labels quoted in the menu inventory originate in the analyzed vendor firmware;
+no ownership or relicensing of those labels is asserted. Product names and trademarks
+belong to their respective owners. No vendor firmware image, extracted executable,
+complete language pack, bitmap, device dump, proprietary SDK, or upstream decoder
+is distributed. The DEFLATE format reference is RFC 1951; the included transcoder
+is project analysis code, not a bundled third-party decoder.

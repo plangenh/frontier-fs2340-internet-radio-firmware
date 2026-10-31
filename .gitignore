@@ -1,0 +1,23 @@
+# Proprietary firmware, local extractions, captures and personal device data
+private/
+output/
+artifacts/
+*.bin
+*.isu
+*.sap
+*.har
+*.pcap
+*.pcapng
+*.tar
+*.zip
+*.heic
+*.HEIC
+*.elf
+*.sqlite
+*.db
+.env
+.env.*
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
