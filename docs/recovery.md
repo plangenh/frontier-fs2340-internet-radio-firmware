@@ -28,3 +28,23 @@ A later static trace identifies settings record `0x2e` and separate runtime/seri
 ## Update-to-dump comparison
 
 The ordinary local-upload payload destination is now statically mapped and cross-checked against all 359 original block locations. A [read-only comparison tool](update-flash-mapping.md) is available for a future verified full dump. This is not yet a repair image or proof that boot/commit metadata can be left unchanged.
+
+## Check repeated reads before comparing firmware
+
+Keep each independently acquired full-chip read as a separate, unchanged file. The documented chip size is 8 MiB. Once those files exist, this offline command checks repeatability and compares explicitly supplied update candidates:
+
+```sh
+python3 tools/check_recovery_reads.py private/read-1.bin private/read-2.bin \
+  --layout fs2340-touro-v4.10.18 \
+  --update private/original.isu.bin \
+  --update private/experimental.isu.bin \
+  --output private/recovery-read-report.json
+```
+
+The command never opens a programmer or writes Flash. It requires distinct read paths and creates a new report without overwriting inputs. Differing reads, or a read consisting entirely of one repeated byte, prevent candidate comparison. Such input needs investigation before drawing conclusions from its contents.
+
+For repeatable nonconstant reads, each candidate is compared over its own [mapped payload window](update-flash-mapping.md). SHA-256 identifies candidates in the report without copying filenames or device data. Counts from different candidate lengths are not a ranking of which image is installed. An exact payload match identifies those bytes only; it does not validate loader commands, boot metadata, device-specific regions, or bootability.
+
+Two matching files do not prove independent acquisition or electrically correct reading. A consistently incorrect read can also match. This tool establishes no readiness to erase or program the chip.
+
+Validation covers mismatched reads, constant-byte reads, size/count bounds, and unchanged input buffers. Separate synthetic-only checks used the retained original, blue Wi-Fi experiment, and failed graphics experiment: each payload matched its own synthetic placement and differed from the other two. No physical dump has yet been tested.
