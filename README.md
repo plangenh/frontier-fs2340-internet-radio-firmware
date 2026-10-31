@@ -36,6 +36,7 @@ The next milestones are device recovery, command-boundary-safe packaging, and re
 - [Web-update completion and restart](docs/update-completion.md)
 - [Container and loader](docs/container.md)
 - [Command-aligned partition repair](docs/loader-partition.md)
+- [Second structural loader checker](docs/independent-loader-check.md)
 - [Display resources](docs/display.md)
 - [Failed update and recovery status](docs/recovery.md)
 - [Personalization roadmap](docs/roadmap.md)
