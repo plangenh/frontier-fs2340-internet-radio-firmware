@@ -57,3 +57,54 @@ def partition_commands(stream, block_count, limit=20480):
             raise ValueError('Invalid partition size')
         validate_commands(part)
     return parts
+
+
+def partition_preserving_blocks(stream, original_parts, limit=20480):
+    """Keep matching prefix/suffix blocks where whole-command packing permits.
+
+    This is a bounded preservation heuristic, not a minimum-change optimizer.
+    Existing block count and order are retained; IDs are assigned by the caller.
+    """
+    if not original_parts:
+        raise ValueError('At least one original block required')
+    for part in original_parts:
+        if not 0 < len(part) <= limit:
+            raise ValueError('Invalid original block size')
+        validate_commands(part)
+    validate_commands(stream)
+    left = 0
+    start = 0
+    while left < len(original_parts) and stream[start:start+len(original_parts[left])] == original_parts[left]:
+        start += len(original_parts[left])
+        left += 1
+    if left == len(original_parts) and start == len(stream):
+        return list(original_parts)
+    # A growing stream may append commands after all original blocks; release
+    # the last prefix block to retain the fixed count of nonempty blocks.
+    if left == len(original_parts):
+        left -= 1
+        start -= len(original_parts[left])
+    right = len(original_parts)
+    end = len(stream)
+    while right > left and end-len(original_parts[right-1]) >= start:
+        part = original_parts[right-1]
+        if stream[end-len(part):end] != part:
+            break
+        end -= len(part)
+        right -= 1
+    while True:
+        try:
+            middle = partition_commands(stream[start:end], right-left, limit)
+            parts = list(original_parts[:left]) + middle + list(original_parts[right:])
+            if b''.join(parts) != stream or len(parts) != len(original_parts):
+                raise ValueError('Preserved partition mismatch')
+            return parts
+        except ValueError:
+            if right < len(original_parts):
+                end += len(original_parts[right])
+                right += 1
+            elif left > 0:
+                left -= 1
+                start -= len(original_parts[left])
+            else:
+                raise

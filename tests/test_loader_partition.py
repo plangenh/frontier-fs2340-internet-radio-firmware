@@ -35,3 +35,39 @@ class LoaderPartitionTests(unittest.TestCase):
                                       (b'', 1, 64), (load(1), 0, 64)]:
             with self.assertRaises(ValueError):
                 partition_commands(stream, count, limit)
+
+
+class PreservationTests(unittest.TestCase):
+    def test_identity_and_changed_prefix_preserve_suffix(self):
+        from loader_partition import partition_preserving_blocks
+        original = [load(32), load(24), load(16)]
+        self.assertEqual(partition_preserving_blocks(b''.join(original), original, 64), original)
+        changed = load(48) + b''.join(original[1:])
+        parts = partition_preserving_blocks(changed, original, 64)
+        self.assertEqual(parts[1:], original[1:])
+        self.assertEqual(b''.join(parts), changed)
+        middle_change = original[0] + load(40) + original[2]
+        parts = partition_preserving_blocks(middle_change, original, 64)
+        self.assertEqual(parts[0], original[0])
+        self.assertEqual(parts[-1], original[-1])
+        self.assertEqual(b''.join(parts), middle_change)
+
+    def test_capacity_expands_middle_and_retains_order(self):
+        from loader_partition import partition_preserving_blocks
+        original = [load(4)*2]*3
+        changed = bytearray(load(4)*7)
+        changed[16] = 1
+        changed = bytes(changed)
+        parts = partition_preserving_blocks(changed, original, 64)
+        self.assertEqual(len(parts), 3)
+        self.assertEqual(b''.join(parts), changed)
+        self.assertEqual(parts[-1], original[-1])
+
+    def test_append_releases_prefix_and_impossible_input_fails(self):
+        from loader_partition import partition_preserving_blocks
+        original = [load(4), load(4)]
+        parts = partition_preserving_blocks(b''.join(original)+load(4), original, 64)
+        self.assertEqual(len(parts), 2)
+        self.assertEqual(b''.join(parts), b''.join(original)+load(4))
+        with self.assertRaises(ValueError):
+            partition_preserving_blocks(load(100), original, 64)
