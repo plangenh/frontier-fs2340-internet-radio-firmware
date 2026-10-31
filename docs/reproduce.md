@@ -42,3 +42,7 @@ Public tests use synthetic data and the curated menu file. The full firmware tes
 ## Inspect a future full-chip dump without modifying it
 
 See [storage layout](storage-layout.md) for the explicit version-specific layout assumption and limitations. `tools/inspect_flash_dump.py` accepts an 8 MiB file and writes a new private JSON report only. It does not accept an ISU update as a full dump or verify live-record integrity.
+
+## Compare an update against a future full dump
+
+See [update-to-Flash mapping](update-flash-mapping.md) for the version-specific comparison command. The tool only produces a new private JSON report; it does not create a repair image or change either input.

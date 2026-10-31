@@ -20,3 +20,7 @@ The menu extractor now joins declared zero-fill with initialized bytes. This rec
 ## Read-only dump inspector
 
 Seven public tests now pass. The additional synthetic dump tests cover input size, bounded candidate search, input preservation, and non-decoding of encrypted, cross-sector, and truncated candidates. No physical flash dump was supplied or tested.
+
+## Update payload mapping
+
+Nine public tests now pass. New tests cover exact and mismatching synthetic dump comparisons, input preservation, and malformed outer ISU fields and checksum. All 359 encoded block positions in the private original match the independently traced destination formula. No hardware dump was used.

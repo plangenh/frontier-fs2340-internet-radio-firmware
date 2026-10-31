@@ -19,3 +19,7 @@ The examined local upload route accepted an envelope consisting of XML metadata,
 Earlier header variants were rejected with “File check failed! Please select another binary.” After correct packaging, a small text modification was reported working during testing. This does not guarantee acceptance or bootability of further changes.
 
 This public package intentionally contains no firmware builder or upload client. Checksums establish consistency, not bootability or the absence of additional acceptance checks.
+
+## Local-upload destination follow-up
+
+A traced ordinary upload writer skips the 124-byte ISU header and copies its payload starting at Flash address `0x12000`. All 359 original encoded block positions agree with this mapping. See [the mapping investigation](update-flash-mapping.md) for scope and unresolved boot/commit behavior.

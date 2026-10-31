@@ -24,3 +24,7 @@ An external SPI programmer could first obtain multiple identical full-chip reads
 ## Settings-storage follow-up
 
 A later static trace identifies settings record `0x2e` and separate runtime/serialized fields for language and time-update source. Its physical flash location is still unresolved. This strengthens the need to preserve configuration during recovery, without providing a ready-to-write flash map. See [the settings investigation](source-dispatch-and-settings.md).
+
+## Update-to-dump comparison
+
+The ordinary local-upload payload destination is now statically mapped and cross-checked against all 359 original block locations. A [read-only comparison tool](update-flash-mapping.md) is available for a future verified full dump. This is not yet a repair image or proof that boot/commit metadata can be left unchanged.
