@@ -35,6 +35,7 @@ The next milestones are device recovery, command-boundary-safe packaging, and re
 - [Local-update payload to Flash mapping](docs/update-flash-mapping.md)
 - [Web-update completion and restart](docs/update-completion.md)
 - [Container and loader](docs/container.md)
+- [Command-aligned partition repair](docs/loader-partition.md)
 - [Display resources](docs/display.md)
 - [Failed update and recovery status](docs/recovery.md)
 - [Personalization roadmap](docs/roadmap.md)
