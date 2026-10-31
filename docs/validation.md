@@ -16,3 +16,7 @@ Tests do not require hardware. GitHub Actions execution and Pages deployment req
 ## Follow-up correction
 
 The menu extractor now joins declared zero-fill with initialized bytes. This recovers Network wizard and changes the static label count from 95 to 96. A synthetic end-to-end regression test covers the exact boundary pattern. The corrected extractor was also rerun against the private original.
+
+## Read-only dump inspector
+
+Seven public tests now pass. The additional synthetic dump tests cover input size, bounded candidate search, input preservation, and non-decoding of encrypted, cross-sector, and truncated candidates. No physical flash dump was supplied or tested.

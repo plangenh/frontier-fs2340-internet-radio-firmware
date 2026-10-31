@@ -95,3 +95,7 @@ This explains why changing an initially zero-filled runtime byte is not sufficie
 - Map further media-context fields without conflating context IDs and source IDs.
 
 The private evidence bundle contains focused instruction excerpts, original table records, and reproducible collectors for event transport, source dispatch, and settings persistence. This public document provides original research prose and technical addresses; raw executable excerpts and device-specific data are not distributed here. No tested feature-unlock patch, custom firmware release, or completed recovery follows from this analysis.
+
+## Storage follow-up
+
+A later pass identifies a configured settings window and object-schema checks, plus lower-layer checksum use. See [settings storage](storage-layout.md). The actual record position, checksum algorithm, and hardware dump still remain unresolved.

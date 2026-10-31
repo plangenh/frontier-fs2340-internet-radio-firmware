@@ -31,6 +31,7 @@ The next milestones are device recovery, command-boundary-safe packaging, and re
 - [Menu structures](docs/menus.md)
 - [Feature visibility and dynamic menus](docs/feature-visibility.md)
 - [Source dispatch and saved settings](docs/source-dispatch-and-settings.md)
+- [Configured settings window and dump inspection](docs/storage-layout.md)
 - [Container and loader](docs/container.md)
 - [Display resources](docs/display.md)
 - [Failed update and recovery status](docs/recovery.md)
