@@ -21,6 +21,10 @@ The goal is to make it possible to personalize text, icons, and colors on compat
 
 The next milestones are device recovery, command-boundary-safe packaging, and repeatable hardware validation. See the [roadmap](docs/roadmap.md) for scope, prerequisites, and release criteria. There is no committed release date.
 
+## Public menu explorer
+
+[Open the menu explorer](https://plangenh.github.io/frontier-fs2340-internet-radio-firmware/) · [Repository](https://github.com/plangenh/frontier-fs2340-internet-radio-firmware)
+
 ## Documentation
 
 - [Findings and evidence](docs/findings.md)

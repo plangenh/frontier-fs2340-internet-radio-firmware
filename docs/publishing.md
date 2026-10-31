@@ -1,6 +1,6 @@
 # Connecting GitHub later
 
-The local repository is separate from the private analysis workspace. It has no remote or credentials configured.
+The publication repository is separate from the private analysis workspace. It is now connected to `https://github.com/plangenh/frontier-fs2340-internet-radio-firmware`. The instructions below also describe how to reproduce that setup for another copy. No credentials are stored in project files.
 
 ## Create the repository in a browser
 
@@ -20,7 +20,7 @@ Authenticate using your own Git credentials or GitHub CLI. No credentials need t
 
 After pushing, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Then run **Actions → Deploy research pages → Run workflow**. The workflow uploads only `site/`. Subsequent pushes to `main` that change `site/` trigger another deployment.
 
-GitHub displays the final Pages URL in the deployment. No public URL exists before the repository is connected and deployed.
+GitHub displays the final Pages URL in the deployment. The configured site URL is https://plangenh.github.io/frontier-fs2340-internet-radio-firmware/. It becomes available after a successful deployment.
 
 ## ZIP alternative
 

@@ -6,4 +6,4 @@ Excluded: original and modified firmware, extracted executable code, complete la
 
 The check in `tools/publication_check.py` adds a safeguard for this curated package; it is not a complete secret scanner or rights assessment. New files still require human review. Git can force-add ignored files; do not use that to include raw data.
 
-This repository is prepared locally and was not automatically uploaded. GitHub Pages will later publish only `site/`, but every other tracked file and its history will also be public if the repository is public.
+The curated repository is public on GitHub. GitHub Pages publishes only `site/`, but every other tracked file and its history is also public. Private analysis outputs remain outside this publication repository.
