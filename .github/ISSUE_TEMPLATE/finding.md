@@ -1,20 +1,20 @@
 ---
-name: Analysebefund
-about: Reproduzierbare Beobachtung oder offene technische Frage
+name: Research finding
+about: Reproducible observation or open technical question
 ---
 
-## Firmware-Version und SHA-256
+## Firmware version and SHA-256
 
-Keine Firmwaredatei anhängen.
+Do not attach firmware files.
 
-## Beobachtung
+## Observation
 
-## Beleg (Adresse / Datensatz / reproduzierbarer Befehl)
+## Evidence (address / record / reproducible command)
 
-## Einordnung
+## Classification
 
-Statisch belegt / Laufzeit beobachtet / abgeleitet / offen
+Static evidence / observed at runtime / inferred / unresolved
 
-## Bereinigung
+## Sanitization
 
-Bitte vor dem Absenden Zugangsdaten und Gerätekennungen aus Texten, Logs und Fotos entfernen.
+Remove credentials and device identifiers from text, logs, and photographs before submitting.

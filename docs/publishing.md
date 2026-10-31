@@ -1,32 +1,32 @@
-# GitHub später verbinden
+# Connecting GitHub later
 
-Das lokale Repository ist unabhängig vom privaten Analyse-Arbeitsverzeichnis. Es enthält noch keinen Remote und keine Zugangsdaten.
+The local repository is separate from the private analysis workspace. It has no remote or credentials configured.
 
-## Repository im Browser anlegen
+## Create the repository in a browser
 
-1. Bei GitHub anmelden und ein neues Repository namens `majority-touro-research` anlegen.
-2. Sichtbarkeit **Public** wählen. Keine zusätzliche README, Lizenz oder `.gitignore` erzeugen, da diese hier bereits vorhanden sind.
-3. Im Terminal in diesen Projektordner wechseln. Bei Bedarf die eigene Git-Identität nur für dieses Repository setzen.
-4. Die von GitHub angezeigte HTTPS- oder SSH-Adresse als Remote hinzufügen und pushen:
+1. Sign in to GitHub and create a repository named `majority-touro-research`.
+2. Choose **Public**. Do not generate an additional README, license, or `.gitignore`; they already exist locally.
+3. Open a terminal in this project directory. If needed, configure your Git identity for this repository only.
+4. Add the HTTPS or SSH address shown by GitHub as the remote and push:
 
 ```sh
-git remote add origin https://github.com/DEIN-NAME/majority-touro-research.git
+git remote add origin https://github.com/YOUR-NAME/majority-touro-research.git
 git push -u origin main
 ```
 
-Die GitHub-Anmeldung erfolgt dabei über deine eigenen Git-Zugangsdaten oder die GitHub CLI. Für die Veröffentlichung sind keine Zugangsdaten in Projektdateien nötig.
+Authenticate using your own Git credentials or GitHub CLI. No credentials need to be placed in project files.
 
-## GitHub Pages aktivieren
+## Enable GitHub Pages
 
-Nach dem Push: **Settings → Pages → Build and deployment → Source: GitHub Actions** auswählen. Danach unter **Actions → Deploy research pages → Run workflow** ausführen. Der Workflow lädt ausschließlich `site/` hoch. Spätere Pushes auf `main`, die `site/` ändern, starten das Deployment erneut.
+After pushing, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Then run **Actions → Deploy research pages → Run workflow**. The workflow uploads only `site/`. Subsequent pushes to `main` that change `site/` trigger another deployment.
 
-GitHub zeigt die endgültige Pages-Adresse im Deployment an. Es ist vor der Verbindung noch keine öffentliche URL vorhanden.
+GitHub displays the final Pages URL in the deployment. No public URL exists before the repository is connected and deployed.
 
-## ZIP-Alternative
+## ZIP alternative
 
-Das beigefügte ZIP enthält nur die kuratierten Projektdateien, ohne Git-Historie. Entpacken und per GitHub-Weboberfläche hochladen ist ebenfalls möglich; versteckte Dateien wie `.github/` und `.gitignore` mit übernehmen.
+The ZIP includes only curated project files, without Git history. You can extract it and upload through GitHub's web interface. Include hidden files such as `.github/` and `.gitignore`.
 
-## Vor jeder Veröffentlichung
+## Before publishing
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -35,6 +35,6 @@ git status --short
 git diff --cached
 ```
 
-Die Prüfungen ersetzen keine inhaltliche Durchsicht neu hinzugefügter Anhänge.
+Checks do not replace reviewing the contents of newly added attachments.
 
-Die Pages-Konfiguration folgt der [offiziellen GitHub-Anleitung](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+The Pages configuration follows the [official GitHub documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).

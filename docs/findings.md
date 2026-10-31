@@ -1,28 +1,28 @@
-# Erkenntnisse und Beleglage
+# Findings and evidence
 
-Untersuchtes Original: `ir-cui-FS2340-0000-0444_V4.10.18.281972.EX11_10-1A8.isu.bin`
+Examined original: `ir-cui-FS2340-0000-0444_V4.10.18.281972.EX11_10-1A8.isu.bin`
 
 SHA-256: `48a9da85d2580ee7fffde0f204ee2046ae0e300a2f23f1e4a6a5e3b299bd0dc3`  
-Größe: 4.136.167 Bytes.
+Size: 4,136,167 bytes.
 
-| Befund | Belegtyp | Grenze |
+| Finding | Evidence | Limitations |
 |---|---|---|
-| 359 komprimierte Blöcke, CRC-16 und entpackte Größen stimmen | Offline-Parser; interner Vergleich mit zweitem Decoder | Gilt für dieses Artefakt |
-| 15 Tabellen mit je 1.056 Ressourcen | Zeigerauflösung und erneuter bytegenauer Abgleich aller 15.840 Strings | Sprachkennung aus Texten abgeleitet |
-| 39 Listenformulare / 102 Einträge / 95 statische Beschriftungen | Gemeinsames 64-Byte-Format, 20-Byte-Einträge, gültige IDs | Dynamische Einträge und Modellfilter offen |
-| 65 Grafikdatensätze | Lückenloser Bereich und interner byteidentischer Rückweg aus PNG | Originalgrafiken werden nicht mitgeliefert |
-| Podcast nutzt Bilder 42–44 | Statische Instruktionsanalyse von Lookup, Variantenwahl und Renderer | Kein neu beobachteter Laufzeittest |
-| Experimentelles Bild-Update verletzte Blockgrenzen | Vergleich Original / Varianten, 113 problematische Blöcke | Tatsächlicher Bootloader-Kontrollfluss noch offen |
+| 359 compressed blocks with matching CRC-16 and decoded sizes | Offline parser; internal comparison against a second decoder | Specific to this artifact |
+| 15 tables of 1,056 resources each | Pointer resolution and repeated byte-level verification of all 15,840 strings | Language identity inferred from text |
+| 39 list forms / 102 entries / 95 static labels | Shared 64-byte structure, 20-byte entries, valid IDs | Dynamic entries and model filtering remain unresolved |
+| 65 graphic records | Contiguous range and internal byte-identical PNG round trips | Original graphics are not distributed |
+| Podcasts uses images 42–44 | Static instruction analysis of lookup, variant selection, and renderer | No newly observed runtime test |
+| Experimental image update violated block boundaries | Comparison of original and modified artifacts; 113 problematic blocks | Actual bootloader control flow remains unresolved |
 
-## Adresskonvention
+## Address conventions
 
-Datenadressen verwenden hier die Ladeansicht, etwa `0x32aeea8c`. Code- und andere Zeiger können den Alias mit gesetztem höchstem Bit verwenden, etwa `0xb2aeea8c`. Das Maskieren dieses Bits ist für die untersuchten Datenzugriffe belegt; es ist kein allgemeiner Ersatz für die korrekte Abbildung von MinIM-Ausführungsadressen.
+Data addresses use the load view, such as `0x32aeea8c`. Code and other pointers may use the alias with the highest bit set, such as `0xb2aeea8c`. Masking this bit is supported for the examined data accesses; it is not a general substitute for correctly mapping MinIM execution addresses.
 
-## Nicht nachgewiesen
+## Not established
 
-- Vollständige dynamische Menü-Hierarchie oder Freischaltung aller Plattformfunktionen.
-- Abwesenheit zusätzlicher kryptografischer Prüfungen.
-- Ein sicher installierbares eigenes UI oder eine erfolgreiche Wiederherstellung des festhängenden Geräts.
-- Eine allgemeine Recovery-Tastenkombination, USB-Recovery oder bestätigte Debug-Pinbelegung.
+- Complete dynamic menu hierarchy or availability of all platform features.
+- Absence of additional cryptographic checks.
+- A safely installable custom UI or successful recovery of the stalled device.
+- A general recovery key combination, USB recovery method, or verified debug pinout.
 
-Die zugrunde liegenden Rohdaten bleiben privat. Kuratierte Tabellen und reproduzierbare Werkzeuge machen die beschriebenen Teilbefunde nachvollziehbar, ersetzen aber kein öffentliches vollständiges Disassembler-Projekt.
+Underlying raw data remains private. Curated tables and reproducible tools support the documented findings, but do not constitute a complete public disassembler project.

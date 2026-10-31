@@ -1,22 +1,22 @@
-# Fehlgeschlagenes Update und Recovery-Stand
+# Failed update and recovery status
 
-Ein experimentelles Update mit ausgetauschten Podcast-Grafiken wurde über das Web-UI installiert. Danach blieb das Gerät bei „Welcome to Internet Radio“ hängen und war nicht im Netzwerk erreichbar. Vollständiges Trennen vom Strom behob dies nicht. Ein früherer kleiner Textänderungsversuch war als erfolgreich gemeldet worden; für die blaue WLAN-Variante liegt kein gesonderter eindeutiger Laufzeitnachweis vor.
+An experimental update with replaced Podcast graphics was installed through the web UI. The device then stalled at “Welcome to Internet Radio” and became unreachable on the network. Fully disconnecting power did not resolve it. An earlier small text-change experiment was reported successful; the blue Wi-Fi variant has no separate unambiguous runtime confirmation.
 
-## Konkreter Fehler im experimentellen Builder
+## Concrete defect in the experimental builder
 
-- Original: 359 von 359 entpackten Blöcken enthalten vollständige Loader-Kommandos.
-- Blaue WLAN-Basis: ebenfalls 359 von 359.
-- Fehlerhafte Bildvariante: nur 246 von 359; 113 Blöcke verletzen die Eigenschaft.
-- Der erste betroffene Block `0x67400` enthält einen Befehl, der 52 Bytes über sein Ende hinausreicht.
+- Original: all 359 decoded blocks contain complete loader commands.
+- Blue Wi-Fi base: also 359 of 359.
+- Failed image variant: only 246 of 359; 113 blocks violate that property.
+- The first affected block, `0x67400`, contains a command extending 52 bytes beyond its end.
 
-Der Builder wandelte Füllbefehle in größere Ladebefehle um und schnitt anschließend den vergrößerten Strom an alten Bytegrenzen. Seine Prüfung fügte die Blöcke vor dem Nachbilden der Speicherzugriffe zusammen und übersah den Fehler. CRC und MD5 blieben trotzdem konsistent.
+The builder converted fill commands into larger load commands, then sliced the expanded stream at old byte boundaries. Its memory-replay check concatenated blocks first, masking the defect. CRC and MD5 values nevertheless remained consistent.
 
-**Das ist ein konkreter Builder-Defekt und ein starker Kandidat für den Startfehler.** Ob der reale Bootloader genau deshalb scheitert, ist ohne dessen nachgewiesenen Blocklesepfad nicht abschließend belegt. Eine spätere Schutzprüfung weist solche Grenzverletzungen zurück; daraus folgt noch kein verifiziertes repariertes Update.
+**This is a concrete builder defect and a strong candidate explanation for the startup failure.** Whether the real bootloader fails for exactly this reason remains unproven without its block-reading control flow. A later guard rejects these boundary violations; that does not establish a verified repaired update.
 
-## Geplante Wiederherstellung, noch nicht durchgeführt
+## Planned recovery: not yet performed
 
-Auf der fotografierten Platine ist ein cFeon/EON EN25QH64A-104HIP identifiziert: 64 Mbit / 8 MiB, nominal 3,3 V. Hardware-Revisionen können abweichen; vor Arbeiten den tatsächlichen Chip prüfen.
+The photographed board has an identified cFeon/EON EN25QH64A-104HIP: 64 Mbit / 8 MiB, nominally 3.3 V. Hardware revisions may differ; verify the actual chip before working on a device.
 
-Ein externer SPI-Programmer könnte zunächst mehrere identische Komplettlesungen erstellen. Anschließend müssen Flash-Aufteilung, Bootloader, Konfiguration und gerätespezifische Bereiche ermittelt werden. Erst daraus kann ein passendes Reparaturabbild entstehen. Der Zugriff auf den eingelöteten Chip ist nicht garantiert; möglicherweise ist Auslöten nötig.
+An external SPI programmer could first obtain multiple identical full-chip reads. Flash layout, bootloader, configuration, and device-specific regions must then be identified before constructing a suitable repair image. In-circuit access is not guaranteed; desoldering may be necessary.
 
-**Eine ISU-Update-Datei ist kein vollständiger Flash-Dump. Sie darf nicht als komplettes Speicherabbild behandelt werden.** Aktuell gibt es in diesem Projekt keinen bestätigten Wiederherstellungsablauf und keinen erfolgreichen Recovery-Test.
+**An ISU update file is not a complete flash dump and must not be treated as one.** This project currently has no confirmed recovery procedure or successful recovery test.

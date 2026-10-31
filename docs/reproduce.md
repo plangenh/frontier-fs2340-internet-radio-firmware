@@ -1,34 +1,34 @@
-# Lokal reproduzieren
+# Reproducing the analysis locally
 
-Python 3.10+ mit Standardbibliothek genügt. Keine Fremdprogramme und kein Gerätezugriff nötig.
+Python 3.10+ and its standard library are sufficient. No additional programs or device access are required.
 
-1. Eine rechtmäßig bezogene eigene Kopie des dokumentierten Original-Updates bereithalten.
-2. Den Parser mit einem neuen privaten Ausgabeordner aufrufen:
+1. Obtain your own lawful copy of the documented original update.
+2. Run the parser with a new private output directory:
 
 ```sh
-python3 tools/analyze_firmware.py /pfad/original.isu.bin --output private/analysis
+python3 tools/analyze_firmware.py /path/to/original.isu.bin --output private/analysis
 python3 tools/extract_resources.py private/analysis/manifest.json --output private/resources
 ```
 
-Der Parser prüft den erwarteten SHA-256, ISU-MD5, Block-CRCs, Größen und vollständige Kommandos pro entpacktem Block. Er erzeugt lokale Modulbereiche, ein Manifest und Zeichenkettenlisten. Die Quell-Firmware wird nur gelesen. Vorhandene Ausgabeordner werden abgewiesen; fehlgeschlagene Läufe können einen unvollständigen neuen Ausgabeordner hinterlassen.
+The parser verifies the expected SHA-256, ISU MD5, block CRCs, sizes, and complete commands within each decoded block. It produces local module regions, a manifest, and string lists. The source firmware is read-only. Existing output directories are rejected; a failed run may leave an incomplete new output directory.
 
-Der Ressourcenleser löst die 15 Sprachentabellen über die Wurzel bei `0x32b12b58` auf. Diese privaten vollständigen Sprachdaten gehören nicht in die Veröffentlichung.
+The resource reader resolves 15 language tables through the root at `0x32b12b58`. These complete private language resources do not belong in the public repository.
 
-## Menüdeskriptoren erneut extrahieren
+## Extract menu descriptors again
 
 ```sh
 python3 tools/extract_menus.py private/analysis/manifest.json private/resources/locales_complete.json --output private/menus
 ```
 
-Das Suchmuster ist streng und versionsgebunden; andere UI-Formate und dynamische Einträge bleiben außerhalb der Abdeckung. Die öffentliche Datendatei wurde aus derselben Originalfassung abgeleitet.
+The search pattern is strict and version-specific. Other UI formats and dynamic entries are outside its coverage. The public data file was derived from the same original version.
 
-## Lokal die öffentliche Seite ansehen
+## View the public site locally
 
 ```sh
 python3 -m http.server 8000 --directory site
 ```
 
-Dann den lokalen Port im Browser öffnen. Die Seite braucht weder Build-Schritt noch externe Schriften oder Skripte.
+Open the local port in a browser. No build step, external fonts, or external scripts are required.
 
 ## Tests
 
@@ -37,4 +37,4 @@ python3 -m unittest discover -s tests -v
 python3 tools/publication_check.py
 ```
 
-Die öffentlichen Tests benutzen synthetische Daten und die kuratierte Menüdatei. Der komplette Firmwaretest benötigt die nicht mitgelieferte Originaldatei und wurde zusätzlich lokal ausgeführt. Alle Aussagen beziehen sich auf die dokumentierte SHA-256; kein allgemeiner Parser für beliebige Frontier-Versionen.
+Public tests use synthetic data and the curated menu file. The full firmware test requires the original file, which is not distributed, and was additionally run locally. All findings refer to the documented SHA-256; this is not a general parser for arbitrary Frontier versions.

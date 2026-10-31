@@ -38,10 +38,10 @@ for base,b in ims:
     addr=(w[7]&0x7fffffff)+i*20
     try:r=struct.unpack('<5I',read(addr,20))
     except ValueError:
-     rows.append({'address':f'0x{addr:08x}','label':{'id':None,'en':'[runtime-populated / unavailable initial bytes]','de':'[zur Laufzeit befüllt]'},'flags':None,'value':None,'callback':None,'argument':None,'submenu_candidate':None});continue
+     rows.append({'address':f'0x{addr:08x}','label':{'id':None,'en':'[runtime-populated / unavailable initial bytes]','de':'[runtime-populated]'},'flags':None,'value':None,'callback':None,'argument':None,'submenu_candidate':None});continue
     lab=label(r[1]);
     if not lab:
-     if r[1]==0xffff000f:lab={'id':65535,'en':'[dynamic label]','de':'[dynamischer Text]'}
+     if r[1]==0xffff000f:lab={'id':65535,'en':'[dynamic label]','de':'[dynamic label]'}
      else:raise ValueError('not label')
     rows.append(dict(address=f'0x{addr:08x}',flags=f'0x{r[0]:x}',label=lab,value=f'0x{r[2]:x}',callback=f'0x{r[3]:08x}',argument=f'0x{r[4]:08x}',submenu_candidate=f'0x{r[4]&0x7fffffff:08x}' if r[3]==0xb20cbbd4 else None))
    addr=base+off;forms[f'0x{addr:08x}']=dict(address=f'0x{addr:08x}',title=label(w[2]),items_address=f'0x{w[7]&0x7fffffff:08x}',item_count=w[6],callback=f'0x{w[12]:08x}',geometry_words=[f'0x{x:08x}' for x in w[4:6]],items=rows)

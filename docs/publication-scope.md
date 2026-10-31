@@ -1,9 +1,9 @@
-# Umfang der Veröffentlichung
+# Publication scope and privacy
 
-Enthalten sind eigene Dokumentation, eigene Analysewerkzeuge, kurze zitierte Menübeschriftungen, technische Adressen und ein Hash des untersuchten Originals. Die Lizenz des Projekts beansprucht keine Rechte an Herstellerressourcen.
+Included: original documentation and analysis tools, short quoted menu labels, technical addresses, and the examined original's hash. The project license asserts no ownership of manufacturer resources.
 
-Ausgeschlossen sind Original- und modifizierte Firmware, entpackte ausführbare Dateien, vollständige Sprachpakete, Hersteller-Bitmaps, Speicherabbilder, Reports, HAR-/Paketmitschnitte, Nutzerfotos, Seriennummern, Geräte-IDs, MAC-Adressen, private Netzwerkadressen und WLAN-Zugangsdaten. Auch Metadaten privater Fotos werden nicht übernommen.
+Excluded: original and modified firmware, extracted executable code, complete language packs, manufacturer bitmaps, flash dumps, device reports, HAR or packet captures, user photographs, serial numbers, device IDs, MAC addresses, private network addresses, and Wi-Fi credentials. Private photo metadata is not copied either.
 
-Die Dateiprüfung in `tools/publication_check.py` ist eine zusätzliche Schranke für dieses kuratierte Paket, keine vollständige Geheimnis- oder Rechteprüfung. Neue Dateien brauchen weiterhin menschliche Durchsicht. Ignorierte Dateien können mit `git add -f` trotzdem hinzugefügt werden; das darf nicht für Rohdaten verwendet werden.
+The check in `tools/publication_check.py` adds a safeguard for this curated package; it is not a complete secret scanner or rights assessment. New files still require human review. Git can force-add ignored files; do not use that to include raw data.
 
-Dieses Repository ist lokal vorbereitet und wurde nicht automatisch hochgeladen. GitHub Pages veröffentlicht später nur `site/`; öffentlich wird aber bei einem öffentlichen Repository auch jede andere getrackte Datei und deren Historie.
+This repository is prepared locally and was not automatically uploaded. GitHub Pages will later publish only `site/`, but every other tracked file and its history will also be public if the repository is public.

@@ -1,50 +1,57 @@
 # Majority Touro / Frontier FS2340 firmware research
 
-Offene, unabhängige Untersuchung der Display-Ressourcen, Menüstrukturen und des Update-Containers eines Majority-Touro-Internetradios mit Frontier-Technik. Kein offizielles Herstellerprojekt.
+Independent research into the display resources, menu structures, and update container of a Majority Touro internet radio using Frontier technology. This is not an official manufacturer project.
 
-**Stand: 31. Oktober 2026.** Dieses Repository dokumentiert Erkenntnisse und bietet Offline-Analysewerkzeuge. Es enthält keine installierbare Firmware und kein bestätigtes Wiederherstellungsverfahren.
+**Status: October 31, 2026.** This repository documents findings and provides offline analysis tools. It does not provide installable custom firmware or a confirmed recovery procedure.
 
-## Ergebnisse
+## Findings
 
-- 359 komprimierte Blöcke des untersuchten Original-Updates geprüft.
-- 15 Sprachentabellen mit jeweils 1.056 Textressourcen identifiziert.
-- 39 statische Listen-/Menüformulare mit 102 deklarierten Einträgen gefunden; 95 Beschriftungen statisch aufgelöst, sieben dynamisch oder offen.
-- 65 Bitmap-Ressourcen im Format 4 bpp / RGB565 identifiziert und intern byteidentisch zurückkodiert.
-- Podcast-Symbole auf die Renderer-Indizes 42–44 zurückgeführt.
-- Einen Fehler beim Neuaufteilen von Loader-Kommandos in einer experimentellen Änderung identifiziert. Nach deren Installation blieb ein Testgerät beim Start hängen; eine erfolgreiche Recovery steht aus.
+- Verified 359 compressed blocks in the examined original update.
+- Identified 15 language tables containing 1,056 text resources each.
+- Recovered 39 static list/menu forms with 102 declared entries: 95 labels resolved statically; seven remain dynamic or unresolved.
+- Identified 65 bitmap resources using 4 bpp indices and RGB565 palettes; internal PNG round trips reproduced the original records byte for byte.
+- Traced the Podcast icons to renderer indices 42–44.
+- Identified a loader-command repartitioning defect in an experimental modification. After installation, a test device stalled at startup; successful recovery is still pending.
 
-**Vorhandene Texte und Tabellen belegen keine Freischaltung einer Funktion auf jedem Gerät.** Einige Menüs entstehen dynamisch. Statische Analyse ist keine beobachtete Ausführung.
+**The presence of text or tables does not prove that a feature is enabled on a particular device.** Some menus are populated dynamically. Static analysis is not observed execution.
 
-## Dokumentation
+## Roadmap: firmware personalization
 
-- [Erkenntnisse und Beleglage](docs/findings.md)
-- [Menüstrukturen](docs/menus.md)
-- [Container und Loader](docs/container.md)
-- [Grafikressourcen](docs/display.md)
-- [Fehlgeschlagenes Update / Recovery-Stand](docs/recovery.md)
-- [Lokale Analyse](docs/reproduce.md)
-- [GitHub und Pages später verbinden](docs/publishing.md)
-- [Datenschutz und Veröffentlichungsgrenzen](docs/publication-scope.md)
+The goal is to make it possible to personalize text, icons, and colors on compatible devices. Resource formats are understood, and a small text modification was reported working on hardware. Reliable, recoverable custom firmware is still a development target—not an available release.
 
-Die [Menüübersicht](site/index.html) wird mit einem lokalen Webserver geöffnet (siehe Anleitung) oder über GitHub Pages aus `site/` veröffentlicht. Diese öffentliche Ausgabe enthält ausgewählte kurze Menübeschriftungen und technische Metadaten; die vollständigen Sprachpakete und Originalgrafiken sind nicht enthalten.
+The next milestones are device recovery, command-boundary-safe packaging, and repeatable hardware validation. See the [roadmap](docs/roadmap.md) for scope, prerequisites, and release criteria. There is no committed release date.
 
-## Schnellstart
+## Documentation
 
-Python 3.10 oder neuer; nur Standardbibliothek:
+- [Findings and evidence](docs/findings.md)
+- [Menu structures](docs/menus.md)
+- [Container and loader](docs/container.md)
+- [Display resources](docs/display.md)
+- [Failed update and recovery status](docs/recovery.md)
+- [Personalization roadmap](docs/roadmap.md)
+- [Reproducing the analysis](docs/reproduce.md)
+- [Connecting GitHub and enabling Pages later](docs/publishing.md)
+- [Publication scope and privacy](docs/publication-scope.md)
+
+Open the [menu explorer](site/index.html) using a local web server, or publish `site/` through GitHub Pages. The public explorer contains short menu-label excerpts and technical metadata; complete language packs and original graphics are not included. English is the primary interface language; original German labels remain alongside English labels as evidence.
+
+## Quick start
+
+Python 3.10 or newer; standard library only:
 
 ```sh
 python3 -m unittest discover -s tests -v
 python3 tools/publication_check.py
-python3 tools/analyze_firmware.py /pfad/zur/eigenen/original.isu.bin --output private/analysis
+python3 tools/analyze_firmware.py /path/to/your/original.isu.bin --output private/analysis
 python3 tools/extract_resources.py private/analysis/manifest.json --output private/resources
 ```
 
-Die Analyse ist an die dokumentierte Firmware gebunden und kontaktiert kein Gerät. Es gibt hier keinen Upload- oder Flash-Befehl. Entpackte lokale Daten bleiben unter `private/` und werden von Git ignoriert.
+The analysis is specific to the documented firmware and does not contact a device. There is no upload or flash command in this repository. Local extracted data stays in the Git-ignored `private/` directory.
 
-## Mitmachen
+## Contributing
 
-Siehe [CONTRIBUTING.md](CONTRIBUTING.md). Bitte Beobachtungen, statische Belege und Vermutungen unterscheiden und öffentliche Anhänge vorher auf Zugangsdaten und Gerätekennungen prüfen.
+See [CONTRIBUTING.md](CONTRIBUTING.md). Distinguish observations, static evidence, and hypotheses. Remove credentials and device identifiers before sharing attachments.
 
-## Lizenz / Herkunft
+## License and provenance
 
-Eigene Skripte und eigene Dokumentation: [MIT](LICENSE). Hersteller-Firmware, daraus gewonnene Beschriftungen, Produktnamen und fremde Beiträge bleiben von dieser Lizenz unberührt; siehe [NOTICE](NOTICE). Die Werkzeuge wurden mit KI-Unterstützung entwickelt. Tests prüfen ausgewählte Eigenschaften, keine allgemeine Eignung für beliebige Firmware.
+Original scripts and original documentation: [MIT](LICENSE). Manufacturer firmware, extracted labels, product names, and third-party contributions are outside that license; see [NOTICE](NOTICE). Tools were developed with AI assistance. Tests verify selected properties, not general suitability for arbitrary firmware.

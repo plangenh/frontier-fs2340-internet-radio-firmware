@@ -1,31 +1,31 @@
-# Display und Grafikressourcen
+# Display and graphics resources
 
-Drei Deskriptoren bei `0x32b722d4` enthalten 320 × 240 Pixel und aufeinanderfolgende Puffer von je 153.600 Bytes. Ein deklarierter Nullfüllbereich deckt zusammen 460.800 Bytes ab. Das stützt drei 16-Bit-Pixelpuffer; deren genaue Front-/Back-/Scratch-Rollen sind offen.
+Three descriptors at `0x32b722d4` contain 320 × 240 dimensions and consecutive buffers of 153,600 bytes each. A declared zero-fill region covers 460,800 bytes in total. This supports three 16-bit pixel buffers; their exact front, back, or scratch roles remain unresolved.
 
-Der lückenlose Grafikbereich `0x32b4ee5c` bis exklusiv `0x32b6f5e8` enthält 65 Datensätze:
+The contiguous graphics range from `0x32b4ee5c` to exclusive end `0x32b6f5e8` contains 65 records:
 
-1. Ein Headerbyte (hier jeweils null; Bedeutung offen).
-2. Breite und Höhe als je ein Byte.
-3. 16 Big-Endian-RGB565-Farben, zusammen 32 Bytes.
-4. 4-bpp-Pixelindizes, hohes Nibble zuerst; jede Zeile hat `ceil(Breite / 2)` Bytes.
+1. One header byte: zero in all recovered records; meaning unresolved.
+2. Width and height: one byte each.
+3. Sixteen big-endian RGB565 colors: 32 bytes in total.
+4. 4 bpp pixel indices, high nibble first; each row occupies `ceil(width / 2)` bytes.
 
-Datensatzgröße: `35 + ceil(Breite / 2) × Höhe`. Bei ungerader Breite muss das ungenutzte Zeilennibble erhalten bleiben. Palette null wurde bei der lokalen Vorschau als Schwarz dargestellt; Transparenz ist dadurch nicht nachgewiesen.
+Record size: `35 + ceil(width / 2) × height`. For odd widths, the unused row nibble must be preserved. Palette entry zero was displayed as black in local previews; this does not establish transparency semantics.
 
-## Quellen-Symbole
+## Source icons
 
-Acht 28-Byte-Quellendatensätze beginnen bei `0x32aeea8c`; die Lookup-Routine liegt bei Ausführungs-PC `0xb20933c4`.
+Eight 28-byte source records begin at `0x32aeea8c`. The lookup routine is at execution PC `0xb20933c4`.
 
-| Quelle | Modus | Basis-Bildindex |
+| Source | Mode | Base image index |
 |---|---:|---:|
-| Internetradio | 1 | 39 |
+| Internet radio | 1 | 39 |
 | Podcasts | 2 | 42 |
 | Spotify | 3 | 45 |
-| Musikabspieler | 4 | 48 |
+| Music player | 4 | 48 |
 | DAB | 5 | 51 |
-| UKW | 6 | 54 |
+| FM | 6 | 54 |
 | Bluetooth | 7 | 60 |
 | AUX | 8 | 57 |
 
-Podcast-Datensatz: `0x32aeeaa8`. Bild 42 bei `0x32b59955` ist 79 × 72, Bild 43 bei `0x32b5a4b8` ebenfalls 79 × 72 und Bild 44 bei `0x32b5b01b` 110 × 110 Pixel. Statische Variantenwahl addiert für den selektierten Popup-Zustand eins und für die fokussierte Karussellmitte zwei zum Basisindex.
+Podcast record: `0x32aeeaa8`. Image 42 at `0x32b59955` is 79 × 72; image 43 at `0x32b5a4b8` is also 79 × 72; image 44 at `0x32b5b01b` is 110 × 110 pixels. Static variant selection adds one to the base index for the selected popup state and two for the focused carousel center.
 
-Das Formatverständnis erlaubt lokale Analysen. Es beweist keine sichere Installation neu kodierter Ressourcen.
+Understanding this format enables offline analysis. It does not prove that newly encoded resources can be installed safely.
