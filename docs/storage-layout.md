@@ -17,7 +17,7 @@ Initialization at execution PC `0xb2002a74` configures the store object at load 
 
 The read adapter (`0xb202e944`) and write adapter (`0xb202ec68`) check relative offsets against the configured length, add the byte base, then invoke the store callbacks. The erase adapter adds the sector base before calling its callback. Driver transaction construction uses opcode `0x20` with a 12-bit sector shift for erase, `0x02` for page programming, and `0x0b` for reads.
 
-This is a strong statically configured SPI-address window to inspect in a full dump. The final transaction adapter jumps to `0x8090f964`, outside the reconstructed memory available to this analysis. Actual chip contents and the final hardware path still need validation; this is not a complete flash partition map.
+This is a strong statically configured SPI-address window to inspect in a full dump. The call to `0x8090f964` was initially treated as an unavailable final transaction boundary. A [later `_lib0` decoding](boot-validation-and-splash.md) identifies it as a 24-bit big-endian address serializer. Actual bus dispatch is a separate path; this is not a complete flash partition map.
 
 ## Record key, object schema, and physical location are different
 
@@ -42,7 +42,7 @@ The examined initialized settings object has flags zero, so its ordinary save pa
 
 The lower record-storage layer calculates a 16-bit checksum using seed `0xffff`. On read, it checks the reconstructed record against its index metadata. Group-header creation also checksums the first ten bytes of a twelve-byte header.
 
-The checksum wrapper (`0xb20b8374`) jumps to `0x8090f778`, which is absent from the reconstructed input memory. Its polynomial, reflection rules, and final XOR are not established. We must not assume it is identical to the update container's CRC.
+The checksum wrapper (`0xb20b8374`) jumps to `0x8090f778`, now [recovered from `_lib0`](boot-validation-and-splash.md). Its nibble table establishes the non-reflected CCITT polynomial `0x1021`. End-to-end stored-record checksum conventions still require validation against physical records; the inspection tool below does not perform that validation.
 
 Record reads can assemble multiple fragments, and writes update group/index metadata and use rollover paths. The exact current record location and active-generation selection remain unresolved. **Record key `0x2e` is not a stable flash offset.** A matching object header is not sufficient to identify a live, valid settings record.
 

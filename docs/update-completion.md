@@ -13,7 +13,7 @@ This is a static trace of the documented FS2340 firmware's buffered web-upload p
 | Completion state | State setter `0xb20da60c` dispatches state `15` to `0xb20da8e0`, writes auxiliary status `5`, prepares a dialog, and branches to the shared tail at `0xb20dab6c`. |
 | Shared terminal tail | It builds the dialog, calls `0xb20ea9b0`, passes `2000` to helper `0xb20da5c8`, then calls `0xb20b8204` and `0xb20b7bd4`. |
 
-The last two calls are trampolines to **`0x8091598c`** and **`0x80915900`**. Neither target is present in the reconstructed instruction database. Their order is established; their exact hardware operations are not. The sequence is consistent with the reported automatic restart, but static analysis alone does not observe that restart.
+The last two calls are trampolines to **`0x8091598c`** and **`0x80915900`**. These targets were absent from the initial main-thread instruction database. The [later runtime-kernel decoding](boot-validation-and-splash.md) locates both in the supplied `_lib0` module: the first prepares MMIO status and the second reaches the reset-register write. Their ordering remains established. The sequence is consistent with the reported automatic restart, but static analysis alone does not observe that restart.
 
 State `14` also reaches this terminal tail, through `0xb20daad0`. It must not be mistaken for the completion state's entry. A separate update UI uses other callbacks and states; those must not be substituted for this web path.
 
@@ -21,17 +21,15 @@ State `14` also reaches this terminal tail, through `0xb20daad0`. It must not be
 
 The short worker completion tail follows the payload writer's return. It contains no visible read-back, decompression test, or next-boot execution test before reporting status `5` and progress `100`.
 
-This is a bounded observation about that tail. It does **not** prove that all lower-level verification is absent: the earlier pre-write helper and terminal external routines remain unavailable. It also does not establish the helper's `2000` argument as milliseconds.
+This is a bounded observation about that tail. It does **not** prove that all lower-level verification is absent: a later [runtime-kernel trace](boot-validation-and-splash.md) recovers the pre-write/status/reset helpers, but it does not establish a complete boot trust policy. It also does not establish the helper's `2000` argument as milliseconds.
 
 A completed write display and a subsequent boot failure are therefore compatible. The earlier experimental package's invalid compressed-block command boundaries remain a concrete independently identified defect; this completion trace does not establish any additional cause of the failure.
 
-## Remaining recovery questions
+## Follow-up status
 
-- What do the unavailable pre-write and terminal routines change?
-- Where are boot selection, commit state, and recovery metadata stored, if present?
-- Which bytes from the failed update are actually present in the device's Flash?
+The [later investigation](boot-validation-and-splash.md) resolves the previously unindexed pre-write and terminal status/reset routines. The [physical readout](recovery.md) also established that the failed graphics payload was present byte for byte. The primary application loader's block-oriented parser is now [reconstructed](bootloader.md), corroborating the command-boundary failure mechanism.
 
-A verified full-chip dump remains the useful next hardware evidence. Compare its payload with the original and experimental packages using the [read-only mapping tool](update-flash-mapping.md), while retaining the unclassified regions. No activation patch or full-chip repair image has been established.
+Remaining questions include exact hardware retention/meaning of MMIO status fields, the complete reset-ROM trust policy and a physically validated USB recovery entry. No successful radio boot after chip reinstallation has yet been recorded.
 
 ## Evidence scope
 

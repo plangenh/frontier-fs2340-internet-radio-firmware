@@ -35,7 +35,7 @@ This gives a direct connection between the container and the configured Flash de
 
 ## Important limits
 
-The writer first calls a helper through `0xb216fd8c` into unavailable code at `0x80915ad0`. Its side effects are unresolved. Boot/commit flags, active-image selection, subsequent boot decompression, and other possible update side effects have not been reconstructed.
+The writer first calls a helper through `0xb216fd8c` to `0x80915ad0`. Initially unindexed, it is now [recovered from `_lib0`](boot-validation-and-splash.md): the examined path clears a high MMIO status bit and writes two magic register values. No Flash-header rewrite appears in that helper. Full register semantics remain unresolved. Full boot/commit semantics, active-image selection and other possible update side effects remain unresolved. The [primary bootloader](bootloader.md) now supplies direct evidence for subsequent block decompression and command parsing.
 
 The observed original payload-copy range does not overlap the configured settings window. That does not prove that an entire update preserves every configuration byte, or that replacing only those payload bytes is sufficient recovery.
 

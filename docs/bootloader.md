@@ -14,7 +14,7 @@ Offline analysis of the verified 8 MiB physical dump, November 3, 2026. The pref
 | `0x011366–0x012000` | Zero-filled gap in this dump |
 | `0x012000…` | Application payload; `enco` marker at `0x12080` |
 
-Interval ends are exclusive. Header tag values are `APPN=0x12000`, `LNVS=0x7a1000`, `FSSP=0x781000`, and `PEND=0x403c6b`. APPN and LNVS corroborate the independently traced application and settings locations. FSSP's full semantics and PEND's consumer are unresolved; names alone do not establish partition behavior.
+Interval ends are exclusive. Header tag values are `APPN=0x12000`, `LNVS=0x7a1000`, `FSSP=0x781000`, and `PEND=0x403c6b`. APPN and LNVS corroborate the independently traced application and settings locations. The later [Welcome investigation](boot-validation-and-splash.md) identifies the record at FSSP as the compressed startup bitmap. Other data in that window and PEND's consumer remain unresolved.
 
 The header's final two bytes are a big-endian CRC16 over its first 14 bytes. Each primary record consists of 120 data bytes, a little-endian next-record offset, a little-endian 16-bit length of 128, and a big-endian CRC16 over the first 126 bytes. The observed CRC expression is `binascii.crc_hqx(data, 0xffff) ^ 0xffff`. All 108 records validate. Their data concatenates to 12,960 bytes; blindly decoding their physical carrier would mistakenly treat link/CRC trailers as instructions.
 
@@ -68,7 +68,7 @@ No USB enumeration has been observed. The existing external USB socket's connect
 
 The prefix is now structurally recoverable and its main application/secondary branches are visible. We can inspect the actual block-loading rules, preserve and compare loader versions, and investigate a potential recovery route without modifying startup code.
 
-Still unresolved: complete reset ROM, external service implementations, exact physical recovery controls, hardware USB routing, the complete trust/signature policy, and a successful boot after chip reinstallation. CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
+A [follow-up investigation](boot-validation-and-splash.md) recovers several previously unindexed runtime helpers and identifies the Welcome asset and renderer. Still unresolved: complete reset ROM, remaining external services, exact physical recovery controls, hardware USB routing, the complete trust/signature policy, and a successful boot after chip reinstallation. CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
 
 ## Reproduce structural inspection
 
