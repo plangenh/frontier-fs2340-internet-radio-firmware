@@ -2,7 +2,7 @@
 
 Independent research into Frontier Venice X / FS2340 internet radio firmware, currently based on one specific Majority Touro firmware version. Coverage of other devices is unverified. This is not an official manufacturer project.
 
-**Status: October 31, 2026.** This repository documents findings and provides offline analysis tools. It does not provide installable custom firmware or a confirmed recovery procedure.
+**Status: November 3, 2026.** This repository documents findings and provides offline analysis tools. It does not provide installable custom firmware or a confirmed recovery procedure.
 
 ## Findings
 
@@ -11,7 +11,8 @@ Independent research into Frontier Venice X / FS2340 internet radio firmware, cu
 - Recovered 39 static list/menu forms with 102 declared entries: 96 labels resolved statically; six remain dynamic.
 - Identified 65 bitmap resources using 4 bpp indices and RGB565 palettes; internal PNG round trips reproduced the original records byte for byte.
 - Traced the Podcast icons to renderer indices 42–44.
-- Identified a loader-command repartitioning defect in an experimental modification. After installation, a test device stalled at startup; successful recovery is still pending.
+- Identified a loader-command repartitioning defect in an experimental modification that preceded a startup failure.
+- Obtained two identical physical 8 MiB reads, confirmed the failed payload, restored the original payload while preserving all other memory bytes, and verified a separate full-chip readback. Reinstallation and a successful boot test remain pending.
 
 **The presence of text or tables does not prove that a feature is enabled on a particular device.** Some menus are populated dynamically. Static analysis is not observed execution.
 

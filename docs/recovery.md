@@ -13,13 +13,31 @@ The builder converted fill commands into larger load commands, then sliced the e
 
 **This is a concrete builder defect and a strong candidate explanation for the startup failure.** Whether the real bootloader fails for exactly this reason remains unproven without its block-reading control flow. A later guard rejects these boundary violations; that does not establish a verified repaired update.
 
-## Planned recovery: not yet performed
+## Physical readout: November 3, 2026
 
-The photographed board has an identified cFeon/EON EN25QH64A-104HIP: 64 Mbit / 8 MiB, nominally 3.3 V. Hardware revisions may differ; verify the actual chip before working on a device.
+A closer photograph identifies the affected unit's chip as cFeon `QX64A-104HIP`, corresponding to the EN25QX64A family: 64 Mbit / 8 MiB, 2.7–3.6 V. This corrects the earlier QH identification. Hardware revisions may differ.
 
-An external SPI programmer could first obtain multiple identical full-chip reads. Flash layout, bootloader, configuration, and device-specific regions must then be identified before constructing a suitable repair image. In-circuit access is not guaranteed; desoldering may be necessary.
+In-circuit attempts did not identify the chip. After desoldering and correcting contact, a Raspberry Pi Pico H running stacksmashing/pico-serprog returned JEDEC ID `1c 71 17`. Flashrom 1.8.0 detected an 8 MiB SFDP-capable chip rather than an exact named model.
+
+Two separately acquired full-chip reads, at 1 MHz and 500 kHz, were byte-identical and nonconstant. Comparing the mapped payload window established an exact byte match to the retained failed graphics experiment. The original update differs in 1,252,480 bytes over its own payload window. These comparisons establish the stored payload, not the precise startup failure mechanism.
+
+The raw reads and configuration inspection stay private. Matching reads plus the retained-artifact match strongly support correct acquisition; no hardware boot test has occurred.
 
 **An ISU update file is not a complete flash dump and must not be treated as one.** This project currently has no confirmed recovery procedure or successful recovery test.
+
+## Original-payload restoration: November 3, 2026
+
+A private 8 MiB candidate was built from the matching physical reads. Only `[0x12000, 0x403c6b)` was replaced with the verified original ISU payload; the 124-byte ISU header was excluded. All bytes outside that interval were copied unchanged from the device backup. The original passed the independent structural checker with 359 blocks.
+
+The candidate differed from the backup in 1,252,480 bytes across 309 4 KiB sectors. External programming used 500 kHz SPI and an explicit layout restricted to sectors `[0x12000, 0x404000)`. The final sector tail was retained from the backup. Flashrom reported successful programming and verification, and reported restoring the chip status register after temporarily disabling protection.
+
+A separate full-chip read at 1 MHz then matched the candidate byte for byte. Offline comparison confirmed:
+
+- The mapped payload equals the original update payload exactly.
+- Every byte outside that payload interval is unchanged from the pre-write backup.
+- The prefix before `0x12000`, configured settings window and final sector are preserved.
+
+**This verifies external chip programming, not a successful radio boot.** The chip remains to be reinstalled and tested in the device. Complete boot/commit semantics remain unresolved. No public ready-to-flash image or general recovery guarantee is provided. Dumps, device configuration, private restore images and programmer logs are not distributed.
 
 ## Settings-storage follow-up
 
@@ -47,4 +65,4 @@ For repeatable nonconstant reads, each candidate is compared over its own [mappe
 
 Two matching files do not prove independent acquisition or electrically correct reading. A consistently incorrect read can also match. This tool establishes no readiness to erase or program the chip.
 
-Validation covers mismatched reads, constant-byte reads, size/count bounds, and unchanged input buffers. Separate synthetic-only checks used the retained original, blue Wi-Fi experiment, and failed graphics experiment: each payload matched its own synthetic placement and differed from the other two. No physical dump has yet been tested.
+Validation covers mismatched reads, constant-byte reads, size/count bounds, and unchanged input buffers. Separate synthetic-only checks used the retained original, blue Wi-Fi experiment, and failed graphics experiment: each payload matched its own synthetic placement and differed from the other two. The November 3 physical reads now pass these checks; the installed graphics payload matches exactly.
