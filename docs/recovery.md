@@ -11,7 +11,7 @@ An experimental update with replaced Podcast graphics was installed through the 
 
 The builder converted fill commands into larger load commands, then sliced the expanded stream at old byte boundaries. Its memory-replay check concatenated blocks first, masking the defect. CRC and MD5 values nevertheless remained consistent.
 
-**This is a concrete builder defect and a strong candidate explanation for the startup failure.** Whether the real bootloader fails for exactly this reason remains unproven without its block-reading control flow. A later guard rejects these boundary violations; that does not establish a verified repaired update.
+**This is a concrete builder defect.** The later [physical bootloader investigation](bootloader.md) confirms a block-oriented command parser whose first malformed block underflows its remaining-byte count by 52 bytes and continues parsing. This establishes the static failure mechanism; the exact execution that produced the observed startup hang was not recorded. A later guard rejects these boundary violations; that does not establish a verified repaired update.
 
 ## Physical readout: November 3, 2026
 
