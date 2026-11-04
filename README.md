@@ -12,7 +12,7 @@ Independent research into Frontier Venice X / FS2340 internet radio firmware, cu
 - Identified 65 bitmap resources using 4 bpp indices and RGB565 palettes; internal PNG round trips reproduced the original records byte for byte.
 - Traced the Podcast icons to renderer indices 42–44.
 - Located and decoded the 320×240 Welcome startup image in the separate FSSP window and traced its primary-loader display path.
-- Reconstructed the CRC-protected primary boot loader and compressed secondary USB DFU loader; traced application block parsing and bounded DFU read/write callbacks. Physical recovery entry and USB routing remain unverified.
+- Reconstructed the CRC-protected primary boot loader and compressed secondary USB DFU loader; traced application block parsing and bounded DFU read/write callbacks. The owner confirmed recovery entry with Standby/Mode + Alarm; USB wiring, enumeration and transfers remain unverified.
 - Identified a loader-command repartitioning defect in an experimental modification that preceded a startup failure.
 - Obtained two identical physical 8 MiB reads, confirmed the failed payload, restored the original payload while preserving all other memory bytes, and verified a separate full-chip readback. After chip reinstallation, the owner reported on November 4 that the radio starts and works again.
 
@@ -40,6 +40,7 @@ Recovery has been reported successful on the affected unit. The next milestones 
 - [Web-update completion and restart](docs/update-completion.md)
 - [Container and loader](docs/container.md)
 - [Boot prefix, application loader and USB recovery](docs/bootloader.md)
+- [USB recovery entry and connection status](docs/usb-recovery.md)
 - [Boot checks, recovered runtime helpers and Welcome image](docs/boot-validation-and-splash.md)
 - [Command-aligned partition repair](docs/loader-partition.md)
 - [Second structural loader checker](docs/independent-loader-check.md)

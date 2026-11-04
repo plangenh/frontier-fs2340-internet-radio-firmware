@@ -42,7 +42,7 @@ A separate observation: PEND in the unchanged boot header still equals the origi
 
 The secondary is a conditional path, not established as an unconditional stage before every application start. Primary code checks bit `0x10` of MMIO address `0x0201503c`; the set-bit branch reaches the secondary path. An error helper at `0xb01e8820` writes `0x10` there and writes `1` to `0x02015000` before spinning. This resembles recovery-flag/reset handling; the register meanings and persistence are not verified on hardware.
 
-Another secondary-entry decision compares two sampled 16-bit values against configuration thresholds. The sampling helper touches `0x020173xx` registers and appears ADC-like. No physical button names, header pins or reliable user-facing key combination have been established.
+Another secondary-entry decision compares two sampled 16-bit values against configuration thresholds. The sampling helper touches `0x020173xx` registers and appears ADC-like. A [later ADC/key-map trace and owner test](usb-recovery.md) identify Standby/Mode + Alarm during cold startup as the recovery entry. Header pin assignments remain unresolved.
 
 The secondary path reads the configured carrier, checks CRC at `0xb01e912c`, decompresses through `0xb01e97fc` to data/storage address `0xb0090000`, then transfers control to MinIM execution address `0xb0120000` at `0xb01e9174`.
 
@@ -62,13 +62,13 @@ The initial loader area is outside that ordinary DFU block window, as is the con
 
 No image-name or cryptographic signature validation was found in the traced download callback/worker path itself. This bounded observation does not establish the full boot chain's authentication policy. Generic DFU vendor-verification error descriptions are not evidence of an implemented signature check.
 
-No USB enumeration has been observed. The existing external USB socket's connection to device-mode signals is unknown. Identifying physical USB routing, a reproducible recovery entry and a compatible host-side transfer procedure remains necessary before attempting USB recovery. A standard-looking class implementation alone does not validate an off-the-shelf host command or justify connecting an arbitrary cable.
+No USB enumeration has been observed. The existing external USB socket's connection to device-mode signals is unknown. The recovery key entry is now [owner-confirmed](usb-recovery.md). Physical USB routing and a compatible host-side transfer procedure remain necessary before attempting USB transfers. A standard-looking class implementation alone does not validate an off-the-shelf host command or justify connecting an arbitrary cable.
 
 ## What this enables and what remains open
 
 The prefix is now structurally recoverable and its main application/secondary branches are visible. We can inspect the actual block-loading rules, preserve and compare loader versions, and investigate a potential recovery route without modifying startup code.
 
-A [follow-up investigation](boot-validation-and-splash.md) recovers several previously unindexed runtime helpers and identifies the Welcome asset and renderer. Still unresolved: complete reset ROM, remaining external services, exact physical recovery controls, hardware USB routing, and the complete trust/signature policy. The owner has since [confirmed startup after reinstallation](recovery.md). CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
+A [follow-up investigation](boot-validation-and-splash.md) recovers several previously unindexed runtime helpers and identifies the Welcome asset and renderer. Still unresolved: complete reset ROM, remaining external services, hardware USB routing and transfers, and the complete trust/signature policy. The owner has since [confirmed startup after reinstallation](recovery.md). CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
 
 ## Reproduce structural inspection
 
