@@ -33,14 +33,22 @@ def inspect_splash(dump):
     pixels=decompressor.decompress(transcode(encoded,'msb','lsb').data,PIXEL_BYTES+1)
     if len(pixels)!=PIXEL_BYTES or not decompressor.eof or decompressor.unused_data or decompressor.unconsumed_tail:
         raise ValueError('FSSP does not decode to the expected complete 320x240x2 image')
+    following=dump[end+2:SPLASH_LIMIT]
+    observed_extent=len(following.rstrip(b'\xff'))
+    following_info={'offset':hex(end+2),
+                    'known_marker':'FLK1' if following.startswith(b'FLK1') else None,
+                    'observed_non_erased_extent':observed_extent,
+                    'erased_suffix_bytes':len(following)-observed_extent,
+                    'window_sha256':hashlib.sha256(following).hexdigest(),
+                    'schema_known':False}
     return {'layout':LAYOUT,'record_offset':hex(SPLASH_START),'compressed_offset':hex(start),
             'compressed_length':length,'crc_offset':hex(end),'crc16_big_endian':hex(expected),
             'crc_valid':True,'record_end_exclusive':hex(end+2),'decoded_size':len(pixels),
             'width':WIDTH,'height':HEIGHT,'pixel_format':'RGB565, big-endian words',
-            'decoded_sha256':hashlib.sha256(pixels).hexdigest(),
+            'decoded_sha256':hashlib.sha256(pixels).hexdigest(),'following_window':following_info,
             'limitations':['Dimensions and format are specific to the traced primary renderer.',
                            'No target execution or confirmation of physical panel colors.',
-                           'Following record bytes are not classified or modified.',
+                           'Following non-erased extent is an observation, not a proven record length or relocatability.',
                            'No pixels or manufacturer bitmap are emitted.']}
 
 

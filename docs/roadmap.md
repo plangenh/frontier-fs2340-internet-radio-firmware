@@ -10,10 +10,13 @@ Our goal is to enable owners of compatible radios to personalize selected displa
 - Podcast icon lookup and variant mapping.
 - A small text modification reported working on hardware.
 - A documented packaging defect from an unsuccessful graphics experiment.
+- Two matching physical backups, verified original-payload restoration, and owner-confirmed startup after chip reinstallation on November 4, 2026.
 
 These are research milestones, not a general claim that modified firmware is safe to install.
 
 ## Milestone 1: recovery and a reliable baseline
+
+**Achieved for the affected unit:** the owner reports that the radio works after the verified original-payload restoration and chip reinstallation. The preserved post-write image is the current recovery baseline. Broader compatibility and comprehensive runtime validation remain open.
 
 - Obtain multiple matching reads of the affected device's SPI flash.
 - Identify application, bootloader, configuration, and device-specific regions.

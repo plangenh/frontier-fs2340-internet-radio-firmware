@@ -68,7 +68,7 @@ No USB enumeration has been observed. The existing external USB socket's connect
 
 The prefix is now structurally recoverable and its main application/secondary branches are visible. We can inspect the actual block-loading rules, preserve and compare loader versions, and investigate a potential recovery route without modifying startup code.
 
-A [follow-up investigation](boot-validation-and-splash.md) recovers several previously unindexed runtime helpers and identifies the Welcome asset and renderer. Still unresolved: complete reset ROM, remaining external services, exact physical recovery controls, hardware USB routing, the complete trust/signature policy, and a successful boot after chip reinstallation. CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
+A [follow-up investigation](boot-validation-and-splash.md) recovers several previously unindexed runtime helpers and identifies the Welcome asset and renderer. Still unresolved: complete reset ROM, remaining external services, exact physical recovery controls, hardware USB routing, and the complete trust/signature policy. The owner has since [confirmed startup after reinstallation](recovery.md). CRC16 and DEFLATE are not cryptographic authentication, but their presence does not prove that every boot stage accepts unsigned modifications. No modified bootloader or recovery utility is offered.
 
 ## Reproduce structural inspection
 

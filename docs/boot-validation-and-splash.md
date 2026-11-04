@@ -32,6 +32,20 @@ python3 tools/inspect_boot_splash.py private/full-chip.bin \
 
 The inspector checks the record bounds, compressed-data CRC, complete DEFLATE stream and exact pixel count. It emits metadata and a hash, not pixels, and never contacts hardware. Tests use synthetic pixels and corrupted/bounded records only.
 
+## FLK1 neighbor follow-up: November 4, 2026
+
+The full `[0x781000, 0x7a1000)` window is byte-identical between the pre-restoration backup and the separately acquired restored-chip readback. The owner has since [confirmed successful startup after reinstalling the chip](recovery.md).
+
+Immediately after the splash CRC, offset `0x782175` contains ten consecutive non-erased bytes: `46 4c 4b 31 0f 00 00 00 00 00`. This can be read as the marker `FLK1`, a little-endian word 15 at +4 and a 16-bit zero at +8, but their meanings are not established. Ten populated bytes do not establish the formal record length.
+
+Every byte from `0x78217f` through exclusive `0x7a1000` is `0xff`: 126,593 bytes. This is an observation of erased-looking storage, not proof of allocatable space.
+
+A bounded search of the original initialized module images found no literal `FLK1`. Constant-construction searches in the existing primary, secondary, runtime-kernel and main-thread instruction indexes did not establish a consumer. The connected primary splash path consumes the image header, compressed bytes and CRC; no subsequent FLK1 handling is demonstrated there. Unindexed/indirect code or external services remain possible, so the marker must not be classified as unused.
+
+For a future splash candidate, the conservative constraint is to retain the existing **4,459-byte compressed length**, CRC position, absolute FLK1 position and every byte after it. This preserves both the observed physical location and relative adjacency. Merely creating a shorter image would not preserve both, and appending arbitrary padding to DEFLATE is not validated. No splash patch or fixed-size recompressor has been created or hardware-tested by this pass.
+
+The metadata inspector now reports the next known marker, observed non-erased extent, erased suffix and a hash of the following window. It does not decode the FLK1 schema or modify its data. A synthetic neighboring-record test checks that these bytes remain outside the splash decoder and that input is unchanged.
+
 ## Correction: some external runtime targets were not missing ROM
 
 Earlier traces stopped at runtime addresses `0x80915ad0`, `0x8091598c`, `0x80915900`, `0x8090f778` and `0x8090f964`, because those targets were absent from the original main-thread instruction index. That was an indexing/address-interpretation limit, not proof of ROM residence.

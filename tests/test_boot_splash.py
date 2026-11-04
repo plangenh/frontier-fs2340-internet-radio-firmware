@@ -23,6 +23,16 @@ class BootSplashTests(unittest.TestCase):
         d=fixture();before=bytes(d);r=inspect_splash(d)
         self.assertTrue(r['crc_valid']);self.assertEqual(r['decoded_size'],PIXEL_BYTES);self.assertEqual(d,before)
 
+    def test_neighboring_data_is_reported_and_not_consumed(self):
+        d=fixture();end=int(inspect_splash(d)['record_end_exclusive'],16)
+        neighbor=b'FLK1'+struct.pack('<IH',15,0)
+        d[end:end+len(neighbor)]=neighbor
+        before=bytes(d);r=inspect_splash(d)
+        self.assertEqual(r['following_window']['known_marker'],'FLK1')
+        self.assertEqual(r['following_window']['observed_non_erased_extent'],10)
+        self.assertFalse(r['following_window']['schema_known'])
+        self.assertEqual(d,before)
+
     def test_checksum_rejected(self):
         d=fixture();d[SPLASH_START+9]^=1
         with self.assertRaises(ValueError):inspect_splash(d)

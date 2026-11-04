@@ -21,9 +21,9 @@ In-circuit attempts did not identify the chip. After desoldering and correcting 
 
 Two separately acquired full-chip reads, at 1 MHz and 500 kHz, were byte-identical and nonconstant. Comparing the mapped payload window established an exact byte match to the retained failed graphics experiment. The original update differs in 1,252,480 bytes over its own payload window. These comparisons establish the stored payload, not the precise startup failure mechanism.
 
-The raw reads and configuration inspection stay private. Matching reads plus the retained-artifact match strongly support correct acquisition; no hardware boot test has occurred.
+The raw reads and configuration inspection stay private. Matching reads plus the retained-artifact match strongly support correct acquisition. At the time of those reads, no post-restoration boot had been tested.
 
-**An ISU update file is not a complete flash dump and must not be treated as one.** This project currently has no confirmed recovery procedure or successful recovery test.
+**An ISU update file is not a complete flash dump and must not be treated as one.** The owner later confirmed successful startup after this specific restoration; this is not a universal recovery procedure.
 
 ## Original-payload restoration: November 3, 2026
 
@@ -37,7 +37,13 @@ A separate full-chip read at 1 MHz then matched the candidate byte for byte. Off
 - Every byte outside that payload interval is unchanged from the pre-write backup.
 - The prefix before `0x12000`, configured settings window and final sector are preserved.
 
-**This verifies external chip programming, not a successful radio boot.** The chip remains to be reinstalled and tested in the device. Complete boot/commit semantics remain unresolved. No public ready-to-flash image or general recovery guarantee is provided. Dumps, device configuration, private restore images and programmer logs are not distributed.
+**The separate readback verifies external chip programming.** The later owner report below supplies the hardware startup confirmation. Complete boot/commit semantics remain unresolved. No public ready-to-flash image or general recovery guarantee is provided. Dumps, device configuration, private restore images and programmer logs are not distributed.
+
+## Owner-confirmed hardware recovery: November 4, 2026
+
+After soldering the chip back onto the board, the owner reported that the radio works again. This follows the verified original-payload restoration above and establishes a successful recovery for this particular device, based on the owner's observation. No automated runtime capture or comprehensive feature test was performed, so individual modes and settings have not been independently revalidated.
+
+The recovery preserves the device's own boot prefix, startup-image area, settings window and all other bytes outside the replaced original-payload interval. The raw backups and verified restored full-chip image remain private. Do not substitute another device's full dump or assume that a downloaded ISU file is a full-chip image.
 
 ## Settings-storage follow-up
 
@@ -45,7 +51,7 @@ A later static trace identifies settings record `0x2e` and separate runtime/seri
 
 ## Update-to-dump comparison
 
-The ordinary local-upload payload destination is now statically mapped and cross-checked against all 359 original block locations. A [read-only comparison tool](update-flash-mapping.md) is available for a future verified full dump. This is not yet a repair image or proof that boot/commit metadata can be left unchanged.
+The ordinary local-upload payload destination is now statically mapped and cross-checked against all 359 original block locations. The [read-only comparison tool](update-flash-mapping.md) was used with the verified physical reads. Preserving all bytes outside the mapped payload was sufficient for this owner-confirmed restoration; that is not proof that all update modes or devices use identical boot/commit behavior.
 
 ## Check repeated reads before comparing firmware
 

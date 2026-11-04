@@ -22,7 +22,7 @@ Data addresses use the load view, such as `0x32aeea8c`. Code and other pointers 
 
 - Complete dynamic menu hierarchy or availability of all platform features.
 - Absence of additional cryptographic checks.
-- A safely installable custom UI or successful recovery of the stalled device.
+- A generally installable custom UI or recovery compatibility beyond the one owner-confirmed restored device.
 - A general recovery key combination, USB recovery method, or verified debug pinout.
 
 Underlying raw data remains private. Curated tables and reproducible tools support the documented findings, but do not constitute a complete public disassembler project.

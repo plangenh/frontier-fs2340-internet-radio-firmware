@@ -2,7 +2,7 @@
 
 Independent research into Frontier Venice X / FS2340 internet radio firmware, currently based on one specific Majority Touro firmware version. Coverage of other devices is unverified. This is not an official manufacturer project.
 
-**Status: November 3, 2026.** This repository documents findings and provides offline analysis tools. It does not provide installable custom firmware or a confirmed recovery procedure.
+**Status: November 4, 2026.** This repository documents findings and provides offline analysis tools, including one owner-confirmed hardware recovery. It does not provide installable custom firmware or a recovery guarantee for other units.
 
 ## Findings
 
@@ -14,7 +14,7 @@ Independent research into Frontier Venice X / FS2340 internet radio firmware, cu
 - Located and decoded the 320×240 Welcome startup image in the separate FSSP window and traced its primary-loader display path.
 - Reconstructed the CRC-protected primary boot loader and compressed secondary USB DFU loader; traced application block parsing and bounded DFU read/write callbacks. Physical recovery entry and USB routing remain unverified.
 - Identified a loader-command repartitioning defect in an experimental modification that preceded a startup failure.
-- Obtained two identical physical 8 MiB reads, confirmed the failed payload, restored the original payload while preserving all other memory bytes, and verified a separate full-chip readback. Reinstallation and a successful boot test remain pending.
+- Obtained two identical physical 8 MiB reads, confirmed the failed payload, restored the original payload while preserving all other memory bytes, and verified a separate full-chip readback. After chip reinstallation, the owner reported on November 4 that the radio starts and works again.
 
 **The presence of text or tables does not prove that a feature is enabled on a particular device.** Some menus are populated dynamically. Static analysis is not observed execution.
 
@@ -22,7 +22,7 @@ Independent research into Frontier Venice X / FS2340 internet radio firmware, cu
 
 The goal is to make it possible to personalize text, icons, and colors on compatible devices. Resource formats are understood, and a small text modification was reported working on hardware. Reliable, recoverable custom firmware is still a development target—not an available release.
 
-The next milestones are device recovery, command-boundary-safe packaging, and repeatable hardware validation. See the [roadmap](docs/roadmap.md) for scope, prerequisites, and release criteria. There is no committed release date.
+Recovery has been reported successful on the affected unit. The next milestones are command-boundary-safe packaging and repeatable hardware validation of small modifications. See the [roadmap](docs/roadmap.md) for scope, prerequisites, and release criteria. There is no committed release date.
 
 ## Public menu explorer
 

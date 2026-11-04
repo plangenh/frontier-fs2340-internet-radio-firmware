@@ -29,7 +29,7 @@ A completed write display and a subsequent boot failure are therefore compatible
 
 The [later investigation](boot-validation-and-splash.md) resolves the previously unindexed pre-write and terminal status/reset routines. The [physical readout](recovery.md) also established that the failed graphics payload was present byte for byte. The primary application loader's block-oriented parser is now [reconstructed](bootloader.md), corroborating the command-boundary failure mechanism.
 
-Remaining questions include exact hardware retention/meaning of MMIO status fields, the complete reset-ROM trust policy and a physically validated USB recovery entry. No successful radio boot after chip reinstallation has yet been recorded.
+Remaining questions include exact hardware retention/meaning of MMIO status fields, the complete reset-ROM trust policy and a physically validated USB recovery entry. The owner has since [reported successful startup after chip reinstallation](recovery.md); this is separate from the earlier static completion trace.
 
 ## Evidence scope
 
